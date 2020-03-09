@@ -1,11 +1,31 @@
 Package: Boreluy
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Datos y resultados electorales de Uruguay 1910-2020
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(person(given = "Nicolas", 
+                    family = "Schmidt", 
+                    role = c("aut", "cre"), 
+                    email = "nschmidt@cienciassociales.edu.uy"),
+             person(given = "Antonio",
+                    family = "Cardarello",
+                    role = c("aut")),
+             person(given = "Diego",
+                    family = "Lujan",
+                    role = c("aut"))
+                    )
+Description: Prove un conjunto de funciones para obtener facilemnte los resultados electorales
+    de Uruguay de elecciones nacionales y departamentales con varios niveles de 
+    desagregacion (partido, fraccion, departamento).
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Depends:
+    R (>= 3.6.0)
+URL: https://github.com/Nicolas-Schmidt/speech
+Imports:
+    dplyr,
+    magrittr,
+    purrr, 
+    tibble,
+    tidyr
+RoxygenNote: 7.0.2
