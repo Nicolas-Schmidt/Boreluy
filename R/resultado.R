@@ -17,35 +17,35 @@ eleccion <- function(anio = max(elecciones$anio),
                      ){
 
 
-    elec <- elecciones[, c('anio_eleccion', 'eleccion', 'partido', 'fraccion', 'departamento', 'votos')]
     if(is.null(tipo)){tipo <- elecciones$eleccion[which.max(elecciones$anio)]}
-    datos <- elec %>% filter(anio_eleccion == anio,  eleccion == tipo)
+    if(tipo == 'Departamental'){por_departamento <-  TRUE}
+    datos <- elecciones %>% filter(anio_eleccion == anio,  eleccion == tipo)
 
     if(por_departamento){
 
         a <- datos %>%
-            mutate(id = paste(partido, departamento, sep = "__")) %>%
-            group_by(id) %>%
-            summarise(Votos = sum(votos)) %>%
-            separate(col = 1, into = c('Partido', 'Departamento'), sep = "__")
-        b <- a %>% group_by(Departamento) %>%  summarize(total = sum(Votos))
-        ab <- full_join(a, b, 'Departamento') %>%
+            group_by(partido, departamento) %>%
+            summarise(Votos = sum(votos, na.rm = TRUE))
+        b <- a %>% group_by(departamento) %>%  summarize(total = sum(Votos, na.rm = TRUE))
+        ab <- full_join(a, b, 'departamento') %>%
             mutate(Porcentaje = (Votos / total * 100)) %>%
             arrange(-Porcentaje) %>%
-            split(., .$Departamento) %>%
+            split(., .$departamento) %>%
             do.call(rbind,.) %>%
             select(-total)
-        ab
+
 
     } else {
 
-        a <- datos %>%
+        ab <- datos %>%
             group_by(partido) %>%
             summarise(Votos = sum(votos)) %>%
             mutate(Porcentaje = (Votos / sum(Votos) * 100)) %>%
             arrange(-Porcentaje)
-        a
+
     }
+    names(ab) <- tools::toTitleCase(names(ab))
+    return(ab)
 
 }
 
@@ -53,13 +53,5 @@ eleccion <- function(anio = max(elecciones$anio),
 
 
 
-
-
-
-
-#eleccion(anio = 1999, tipo = "Presidencial", FALSE)
-# explora
-#library(tidyverse)
-#elecciones <- rio::import(here::here("data", "megaDB.xlsx"))
 
 

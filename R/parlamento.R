@@ -8,7 +8,7 @@
 #' @return data.frame.
 #' @examples
 #' \donttest{
-#' parlamento(1950, FALSE)
+#' parlamento(1950, TRUE)
 #' @export
 
 
@@ -45,16 +45,33 @@ parlamento <- function(anio = 1971,
         mutate(Senadores = if_else(is.na(Senadores), 0, Senadores)) %>%
         ungroup() %>%
         na.omit()
-    if(por_departamento){
-        return(a)
-    } else {
-        b <- a %>%
-            select(partido, Senadores) %>%
-            distinct()
-        b2 <- a %>%
-            group_by(partido) %>%
-            summarise(Diputados = sum(Diputados))
-        full_join(b2, b, by = 'partido') %>% arrange(-Diputados)
-    }
 
+    b <- a %>%
+        select(partido, Senadores) %>%
+        distinct()
+    b2 <- a %>%
+        group_by(partido) %>%
+        summarise(Diputados = sum(Diputados)) %>%
+        full_join(b, by = 'partido') %>%
+        arrange(-Diputados)
+
+
+    if(por_departamento){
+        a <- a[, c('partido', 'departamento', 'Diputados', 'Senadores')]
+        names(a) <- tools::toTitleCase(names(a))
+        a
+    }else{
+        b2 <- b2[,c('partido', 'Diputados', 'Senadores')]
+        names(b2) <- tools::toTitleCase(names(b2))
+        b2
+    }
 }
+
+
+
+
+
+
+
+
+
