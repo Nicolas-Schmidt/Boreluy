@@ -7,15 +7,14 @@
 #'     el resultado va a ser contsnte en todos los departamemtos.
 #' @return data.frame.
 #' @examples
-#' \donttest{
-#' parlamento(1950, TRUE)
+#' parlamento(1971, FALSE)
 #' @export
 
 
 parlamento <- function(anio = 1971,
                        por_departamento = FALSE){
 
-    elec <- elecciones %>%
+    elec <- elecciones_uy %>%
         filter(eleccion %in% c('Legislativa', 'Presidencial'),
                concurrente == 1,
                anio_eleccion == anio) %>%
@@ -58,13 +57,13 @@ parlamento <- function(anio = 1971,
 
     if(por_departamento){
         a <- a[, c('partido', 'departamento', 'Diputados', 'Senadores')]
-        names(a) <- tools::toTitleCase(names(a))
-        a
+        #names(a) <- tools::toTitleCase(names(a))
     }else{
-        b2 <- b2[,c('partido', 'Diputados', 'Senadores')]
-        names(b2) <- tools::toTitleCase(names(b2))
-        b2
+        a <- b2[,c('partido', 'Diputados', 'Senadores')]
+        #names(a) <- tools::toTitleCase(names(a))
+        #b2
     }
+    return(arrange(sigla(dat = a, anio = anio), -Senadores))
 }
 
 
