@@ -33,7 +33,7 @@ elec71 <- resultado_elecciones_uy(anio = 1971, tipo = 'Presidencial', por_depart
 
 ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
     geom_bar(stat = "identity", position = "stack", fill = "#00A08A", color = "black") +
-    ylim(0,60) +
+    ylim(0,100) +
     coord_flip() +
     geom_text(aes(label = paste0(Porcentaje, "%")), hjust = -0.5, color = "gray9", size = 3) +
     labs(x = "", y = "",
@@ -42,23 +42,26 @@ ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
     theme_minimal()
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="80%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="60%" />
 
 ``` r
 elec71 <- resultado_elecciones_uy(1971, 'Presidencial', por_departamento = TRUE) 
 
 ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
     geom_bar(stat="identity", position = "stack", fill = "#00A08A", color = "black") +
-    ylim(0,60) +
+    ylim(0,100) +
     coord_flip() +
-    geom_text(aes(label = paste0(Porcentaje, "%")), hjust = -0.5, color = "gray9", size = 3) +
+    geom_text(aes(label = paste0(Porcentaje, "%")), hjust = -0.5, color = "gray9", size = 2) +
     labs(x = "", y = "",
          title = "Resultado de elección nacional de 1971",
          subtitle = "28 de noviembre de 1971") +
-    theme_minimal() + facet_wrap(~Departamento)
+    theme_minimal() + 
+    theme(axis.text.x = element_text(size = 6),
+          axis.text.y = element_text(size = 6)) +
+    facet_wrap(~Departamento)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="80%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" height="100%" />
 
 ## Parlamento
 
@@ -82,4 +85,4 @@ ggplot(diputados, aes(x, y, colour = party_long)) +
                         limits = diputados$party_long)
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="80%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="60%" />
