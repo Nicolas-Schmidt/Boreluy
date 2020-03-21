@@ -6,18 +6,20 @@
 #' @importFrom magrittr %>%
 
 
-if(getRversion() >= "2.15.1"){
-    utils::globalVariables(c('.'))
-    utils::suppressForeignCheck(c('.'))
-}
+vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'anio_eleccion', 'partido',
+          'departamento', 'camara', 'bancas', 'Bancas', 'Senadores', 'Diputados',
+          'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy')
 
+if(getRversion() >= "2.15.1"){
+    utils::globalVariables(c('.', vars))
+    utils::suppressForeignCheck(c('.', vars))
+}
 
 vbva <- function(vec){
     ubic <- which(vec$Partido %in% c('Voto en Blanco', 'Voto Anulado'))
     if(any(ubic)) vec$Sigla[ubic] <- c('VB', 'VA')
     return(vec)
 }
-
 
 sigla <- function(dat, anio){
     names(dat) <- tools::toTitleCase(names(dat))

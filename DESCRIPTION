@@ -27,5 +27,6 @@ Imports:
     magrittr,
     purrr, 
     tibble,
-    tidyr
+    tidyr, 
+    ggparliament
 RoxygenNote: 7.0.2
