@@ -43,6 +43,9 @@ library(magrittr)
 
 elec71 <- resultado_elecciones_uy(anio = 1971, tipo = 'Presidencial', por_departamento = FALSE)
 
+elec71
+
+
 ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
     geom_bar(stat = "identity", position = "stack", fill = "#00A08A", color = "black") +
     ylim(0,100) +
@@ -99,7 +102,7 @@ par_uy <- function(datos, titulo, mayoria, ...){
 
 ```
 
-##### Camara de Representantes
+#### Camara de Representantes
 
 ```{r}
 diputados <- 
@@ -110,7 +113,7 @@ diputados <-
 diputados
 ```
 
-##### Camara de Senadores
+#### Camara de Senadores
 
 ```{r}
 senadores <- 

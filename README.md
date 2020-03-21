@@ -31,6 +31,21 @@ library(magrittr)
 
 elec71 <- resultado_elecciones_uy(anio = 1971, tipo = 'Presidencial', por_departamento = FALSE)
 
+elec71
+#> # A tibble: 9 x 5
+#>   Eleccion Partido                                     Sigla  Votos Porcentaje
+#>      <dbl> <chr>                                       <chr>  <dbl>      <dbl>
+#> 1     1971 Partido Colorado                            PC    681624      39.8 
+#> 2     1971 Partido Nacional                            PN    668822      39.0 
+#> 3     1971 Frente Amplio                               FA    304275      17.8 
+#> 4     1971 Voto Anulado                                VB     42508       2.48
+#> 5     1971 Union Radical Cristiana                     URC     8844       0.52
+#> 6     1971 Voto en Blanco                              VA      6139       0.36
+#> 7     1971 Partido de Jubilados y Pensionistas         PJP      288       0.02
+#> 8     1971 Movimiento Justiciero                       MJ       241       0.01
+#> 9     1971 Partido Juventud por el Desarrollo Oriental PJDO      25       0
+
+
 ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
     geom_bar(stat = "identity", position = "stack", fill = "#00A08A", color = "black") +
     ylim(0,100) +
@@ -94,7 +109,7 @@ par_uy <- function(datos, titulo, mayoria, ...){
 }
 ```
 
-##### Camara de Representantes
+#### Camara de Representantes
 
 ``` r
 diputados <- 
@@ -107,7 +122,7 @@ diputados
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="60%" />
 
-##### Camara de Senadores
+#### Camara de Senadores
 
 ``` r
 senadores <- 
