@@ -3,7 +3,7 @@
 
 ## Boreluy <img src='man/figures/logo_Boreluy.png' align="right" height="180" />
 
-*Nicolas Schmidt, Antonio Cardarello, Diego Lujan*
+*Nicolás Schmidt, Antonio Cardarello, Diego Luján…*
 
 <!-- badges: start -->
 
@@ -14,15 +14,15 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 ### Acerca de
 
-Este paquete de R proporciona un conjunto de datos que comtiene
-resultados electorales al maximo nivel de desagregacion posible y
+Este paquete de R proporciona un conjunto de datos que contiene
+resultados electorales al máximo nivel de desagregación posible y
 comparable entre elecciones. Adicionalmente provee un conjunto de
 funciones que permiten obtener agregaciones de los datos (resultado por
 partido, por partido-departamento…).
 
 ### Instalacion
 
-Version en desarrollo
+Versión en desarrollo
 
 ``` r
 source("https://install-github.me/Nicolas-Schmidt/Boreluy")
