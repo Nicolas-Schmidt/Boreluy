@@ -22,7 +22,8 @@ knitr::opts_chunk$set(
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-<!-- badges: end --> <!-- badges: end -->
+[![Travis build status](https://travis-ci.com/Nicolas-Schmidt/Boreluy.svg?branch=master)](https://travis-ci.com/Nicolas-Schmidt/Boreluy)
+<!-- badges: end --> 
 
 ### Acerca de
 
