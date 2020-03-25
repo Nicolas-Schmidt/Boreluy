@@ -1,13 +1,13 @@
 #' @title as_parliament
 #'
-#' @description Convierte salida de funcion \code{parlamento_uy} al formato necesario para
+#' @description Convierte salida de la funcion \code{\link{parlamento_uy}} al formato necesario para
 #'     poder usar el paquete \code{ggparliament}.
 #' @param datos Datos de la clase \code{boreluy_parlamento}.
-#' @param camara Por defecto  es 1 que correponde a la camara baja o camara de Represnetantes, si se
-#'     inida 2 corresponde a la camara alta o camara de Senadores.
-#' @param color Paleta de colores con los que se van a identificar a los partidos politicos.
+#' @param camara Por defecto es 1 que correponde a la camara baja o Camara de Represnetantes, si se
+#'     indica 2 corresponde a la camara alta o Camara de Senadores.
+#' @param color Paleta de colores con los que se van a identificar a los partidos politicos en el grafico.
 #' @param tipo Tipo de parlamento (horseshoe, semicircle, circle, classroom, opposing benches)
-#' @param ... argumentos adicionales de la funcion \code{ggparliament::parliament_data}
+#' @param ... argumentos adicionales de la funcion \code{\link[ggparliament]{parliament_data}}
 #' @return data.frame.
 #' @export
 
@@ -15,6 +15,9 @@ as_parliament <- function(datos,
                           camara = 1,
                           color = NULL,
                           tipo = "semicircle",  ...){
+
+
+    if(!inherits(datos, "boreluy_parlamento")){stop("Los datos deben ser una salida de la funcion 'parlamento_uy'.", call. = FALSE)}
 
     if(camara == 1){
         camara <- 'Representantes'

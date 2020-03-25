@@ -1,0 +1,11 @@
+Authors@R: c(person(given = "Nicolas", 
+                    family = "Schmidt", 
+                    role = c("aut", "cre"), 
+                    email = "nschmidt@cienciassociales.edu.uy"),
+             person(given = "Antonio",
+                    family = "Cardarello",
+                    role = c("aut")),
+             person(given = "Diego",
+                    family = "Lujan",
+                    role = c("aut"))
+                    )

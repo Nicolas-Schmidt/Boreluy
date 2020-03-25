@@ -9,19 +9,19 @@ as_parliament(datos, camara = 1, color = NULL, tipo = "semicircle", ...)
 \arguments{
 \item{datos}{Datos de la clase \code{boreluy_parlamento}.}
 
-\item{camara}{Por defecto  es 1 que correponde a la camara baja o camara de Represnetantes, si se
-inida 2 corresponde a la camara alta o camara de Senadores.}
+\item{camara}{Por defecto es 1 que correponde a la camara baja o Camara de Represnetantes, si se
+indica 2 corresponde a la camara alta o Camara de Senadores.}
 
-\item{color}{Paleta de colores con los que se van a identificar a los partidos politicos.}
+\item{color}{Paleta de colores con los que se van a identificar a los partidos politicos en el grafico.}
 
 \item{tipo}{Tipo de parlamento (horseshoe, semicircle, circle, classroom, opposing benches)}
 
-\item{...}{argumentos adicionales de la funcion \code{ggparliament::parliament_data}}
+\item{...}{argumentos adicionales de la funcion \code{\link[ggparliament]{parliament_data}}}
 }
 \value{
 data.frame.
 }
 \description{
-Convierte salida de funcion \code{parlamento_uy} al formato necesario para
+Convierte salida de la funcion \code{\link{parlamento_uy}} al formato necesario para
     poder usar el paquete \code{ggparliament}.
 }

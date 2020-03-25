@@ -63,7 +63,9 @@ parlamento_uy <- function(anio = 1971,
         #names(a) <- tools::toTitleCase(names(a))
         #b2
     }
-    return(arrange(sigla(dat = a, anio = anio), -Senadores))
+    salida <- arrange(sigla(dat = a, anio = anio), -Senadores)
+    class(salida) <- 'boreluy_parlamento'
+    return(salida)
 }
 
 
