@@ -27,7 +27,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 ### Acerca de
 
-Este paquete de R proporciona un conjunto de datos que contiene resultados electorales al máximo nivel de desagregación posible y comparable entre elecciones. Adicionalmente provee un conjunto de funciones que permiten obtener agregaciones de los datos (resultado por partido, por partido-departamento...).
+Este paquete de R proporciona un conjunto de datos que contienen resultados electorales al máximo nivel de desagregación posible y comparable entre elecciones. Adicionalmente provee un conjunto de funciones que permiten obtener agregaciones de los datos (resultado por partido, por partido-departamento...).
 
 
 ### Instalacion

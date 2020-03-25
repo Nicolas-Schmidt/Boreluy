@@ -21,7 +21,8 @@ Encoding: UTF-8
 LazyData: true
 Depends:
     R (>= 3.6.0)
-URL: https://github.com/Nicolas-Schmidt/speech
+BugReports: https://github.com/Nicolas-Schmidt/Boreluy/issues
+URL: https://github.com/Nicolas-Schmidt/Boreluy
 Imports:
     dplyr,
     magrittr,

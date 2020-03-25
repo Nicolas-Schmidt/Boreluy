@@ -11,8 +11,6 @@
 #' @return data.frame.
 #' @export
 
-
-
 as_parliament <- function(datos,
                           camara = 1,
                           color = NULL,

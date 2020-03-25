@@ -16,7 +16,7 @@ status](https://travis-ci.com/Nicolas-Schmidt/Boreluy.svg?branch=master)](https:
 
 ### Acerca de
 
-Este paquete de R proporciona un conjunto de datos que contiene
+Este paquete de R proporciona un conjunto de datos que contienen
 resultados electorales al máximo nivel de desagregación posible y
 comparable entre elecciones. Adicionalmente provee un conjunto de
 funciones que permiten obtener agregaciones de los datos (resultado por
