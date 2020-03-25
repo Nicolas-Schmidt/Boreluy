@@ -22,6 +22,9 @@ comparable entre elecciones. Adicionalmente provee un conjunto de
 funciones que permiten obtener agregaciones de los datos (resultado por
 partido, por partido-departamento…).
 
+El manual del paquete esta
+[aquí](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
+
 ### Instalacion
 
 Versión en desarrollo

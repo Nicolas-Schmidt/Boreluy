@@ -29,6 +29,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 Este paquete de R proporciona un conjunto de datos que contienen resultados electorales al máximo nivel de desagregación posible y comparable entre elecciones. Adicionalmente provee un conjunto de funciones que permiten obtener agregaciones de los datos (resultado por partido, por partido-departamento...).
 
+El manual del paquete esta [aquí](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
 
 ### Instalacion
 
@@ -132,4 +133,18 @@ senadores
 
 
 
+```{r, echo = FALSE, message = FALSE}
+manual <- function(){
+    old <- here::here()
+    path <- here::here('man', 'figures')
+    sink('noise.txt')
+    devtools::build_manual(path = path)
+    sink()
+    setwd(path)
+    invisible(file.rename(list.files(pattern="^Boreluy"), 'Manual_Boreluy.pdf'))
+    setwd(old)
+    invisible(file.remove('noise.txt'))
+}
+manual()
+```
 
