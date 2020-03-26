@@ -39,10 +39,15 @@ Versión en desarrollo
 source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 ```
 
+## Elecciones Uruguayas
+```{r}
+library(Boreluy)
+resumen_elecciones_uy()
+```
 ## Resultados electorales
 
 ```{r}
-library(Boreluy)
+
 library(ggplot2)
 library(magrittr)
 

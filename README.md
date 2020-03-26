@@ -33,10 +33,62 @@ Versión en desarrollo
 source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 ```
 
-## Resultados electorales
+## Elecciones Uruguayas
 
 ``` r
 library(Boreluy)
+resumen_elecciones_uy()
+#> 
+#> 
+#> --- Cantidad de elecciones ------------------------------------
+#> 
+#> -->  Presidencial                       : 18  (38%) 
+#> -->  Ballotage                          : 1    (2%) 
+#> -->  Departamental                      : 15  (31%) 
+#> -->  Legislativa                        : 10  (21%) 
+#> -->  Consejo Nacional de Administracion : 4    (8%) 
+#> 
+#> ---------------------------------------------------------------
+#> 
+#>       Presidencial  Ballotage  Departamental  Legislativa  CNA
+#> 1918                                                    X     
+#> 1919                                                    X     
+#> 1920                                                         X
+#> 1922             X                                      X     
+#> 1925                                                    X     
+#> 1926             X                                      X     
+#> 1928                                                    X    X
+#> 1930             X                                      X    X
+#> 1931                                                    X     
+#> 1932                                                    X    X
+#> 1934                                                    X     
+#> 1938             X                                            
+#> 1942             X                         X                  
+#> 1946             X                         X                  
+#> 1950             X                         X                  
+#> 1954             X                         X                  
+#> 1958             X                         X                  
+#> 1962             X                         X                  
+#> 1966             X                         X                  
+#> 1971             X                         X                  
+#> 1984             X                         X                  
+#> 1989             X                         X                  
+#> 1994             X                         X                  
+#> 1999             X          X                                 
+#> 2000                                       X                  
+#> 2004             X                                            
+#> 2005                                       X                  
+#> 2010                                       X                  
+#> 2014             X                                            
+#> 2015                                       X                  
+#> 
+#> ---------------------------------------------------------------
+```
+
+## Resultados electorales
+
+``` r
+
 library(ggplot2)
 library(magrittr)
 
@@ -69,7 +121,7 @@ ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
     theme_minimal()
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="60%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="60%" />
 
 ``` r
 elec71 <- resultado_elecciones_uy(1971, 'Presidencial', por_departamento = TRUE) 
@@ -88,7 +140,7 @@ ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
     facet_wrap(~Departamento)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" height="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" height="100%" />
 
 ## Parlamento
 
@@ -132,7 +184,7 @@ diputados <-
 diputados
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="60%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="60%" />
 
 #### Camara de Senadores
 
@@ -145,4 +197,4 @@ senadores <-
 senadores
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="60%" />
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="60%" />

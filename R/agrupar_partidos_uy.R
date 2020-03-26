@@ -12,7 +12,7 @@
 
 agrupar_partidos_uy <- function(datos, umbral = 2){
 
-    if(!inherits(datos, "boreluy_elecciones")){stop("Los datos deben ser una salida de la funcion 'resultados_elecciones_uy'.", call. = FALSE)}
+    if(!inherits(datos, "boreluy_elecciones")){stop("Los datos deben ser una salida de la funcion `resultados_elecciones_uy`.", call. = FALSE)}
     if(attr(datos, 'departamento')){
         tab <- split(datos, datos$Departamento) %>%  map(ap, umbral = umbral)
         dep <- rep(names(tab), sapply(tab, nrow))

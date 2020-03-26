@@ -30,7 +30,7 @@ as_parliament <- function(datos,
                           tipo = "semicircle",  ...){
 
 
-    if(!inherits(datos, "boreluy_parlamento")){stop("Los datos deben ser una salida de la funcion 'parlamento_uy'.", call. = FALSE)}
+    if(!inherits(datos, "boreluy_parlamento")){stop("Los datos deben ser una salida de la funcion `parlamento_uy`.", call. = FALSE)}
 
     if(camara == 1){
         camara <- 'Representantes'
