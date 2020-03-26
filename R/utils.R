@@ -1,14 +1,15 @@
 
-#' @importFrom dplyr filter select group_by mutate if_else full_join arrange summarise right_join ungroup distinct summarize
+#' @importFrom dplyr filter select group_by mutate if_else full_join left_join arrange summarise right_join ungroup distinct summarize
 #' @importFrom tidyr pivot_wider
-#' @importFrom tibble as_tibble
+#' @importFrom tibble as_tibble tibble
 #' @importFrom stats na.omit
+#' @importFrom purrr map
 #' @importFrom magrittr %>%
 
 
 vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'anio_eleccion', 'partido',
           'departamento', 'camara', 'bancas', 'Bancas', 'Senadores', 'Diputados',
-          'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy')
+          'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'corte')
 
 if(getRversion() >= "2.15.1"){
     utils::globalVariables(c('.', vars))
@@ -27,6 +28,26 @@ sigla <- function(dat, anio){
 }
 
 
+ap <- function(datos, umbral = 2){
+
+    datos$corte <- ifelse(datos$Porcentaje < umbral, 'Otros Partidos', datos$Partido)
+    datos$corte <- ifelse(datos$Partido %in% c('Voto Anulado', 'Voto en Blanco'), 'Voto Blanco/Anulado', datos$corte)
+    datos1 <- datos %>%
+        group_by(corte) %>%
+        summarise(Porcentaje = sum(Porcentaje), Votos = sum(Votos))
+
+    out <- tibble(
+        Eleccion   = unique(datos$Eleccion),
+        Partido    = datos1$corte,
+        Votos      = datos1$Votos,
+        Porcentaje = datos1$Porcentaje
+    ) %>% arrange(-Porcentaje) %>% left_join(., partidos_uy[-3], by = 'Partido')
+
+    out$Sigla <- ifelse(out$Partido == 'Voto Blanco/Anulado', 'VB/VA',
+                        ifelse(out$Partido == 'Otros Partidos', 'OtrosP.', out$Sigla))
+
+    out
+}
 
 
 

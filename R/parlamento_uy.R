@@ -64,7 +64,8 @@ parlamento_uy <- function(anio = 1971,
         #b2
     }
     salida <- arrange(sigla(dat = a, anio = anio), -Senadores)
-    class(salida) <- 'boreluy_parlamento'
+    class(salida) <- c(class(salida), 'boreluy_parlamento')
+
     return(salida)
 }
 

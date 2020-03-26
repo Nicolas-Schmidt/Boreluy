@@ -1,7 +1,7 @@
 Package: Boreluy
 Type: Package
 Title: Datos y resultados electorales de Uruguay 1910-2020
-Version: 0.1.0
+Version: 0.1.0.900
 Author: Nicolas Schmidt [aut, cre], Antonio Cardarello[aut], Diego Lujan[aut]
 Maintainer: Nicolas Schmidt <nschmidt@cienciassociales.edu.uy>
 Description: Provee un conjunto de funciones para obtener facilemnte los resultados electorales

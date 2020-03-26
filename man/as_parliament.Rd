@@ -25,3 +25,17 @@ data.frame.
 Convierte salida de la funcion \code{\link{parlamento_uy}} al formato necesario para
     poder usar el paquete \code{ggparliament}.
 }
+\examples{
+diputados <- parlamento_uy(anio = 1971, por_departamento = FALSE)
+as_parliament(diputados, camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4'))
+
+# ggplot2::ggplot(diputados, aes(x, y, colour = party_long)) +
+#    ggplot2::geom_parliament_seats() +
+#    ggplot2::geom_highlight_government(government == 1) +
+#    ggplot2::draw_majoritythreshold(n = mayoria, label = FALSE, type = 'semicircle') +
+#    ggplot2::geom_parliament_bar(colour = colour, party = party_long) +
+#    ggplot2::theme_ggparliament() +
+#    ggplot2::labs(colour = NULL, title = titulo, subtitle = "") +
+#    ggplot2::scale_colour_manual(values = datos$colour, limits = datos$party_long)
+
+}

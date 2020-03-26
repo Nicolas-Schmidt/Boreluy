@@ -37,8 +37,10 @@ resultado_elecciones_uy <- function(anio = max(elecciones_uy$anio),
             mutate(Porcentaje = round((Votos / sum(Votos) * 100),2)) %>%
             arrange(-Porcentaje)
     }
-    return(sigla(dat = ab, anio = anio))
-
+    sal <- sigla(dat = ab, anio = anio)
+    attr(sal, 'departamento') <- por_departamento
+    class(sal) <- c(class(sal), "boreluy_elecciones")
+    return(sal)
 }
 
 
