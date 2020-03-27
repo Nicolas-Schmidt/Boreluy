@@ -24,7 +24,7 @@ vbva <- function(vec){
 
 sigla <- function(dat, anio){
     names(dat) <- tools::toTitleCase(names(dat))
-    cbind(Eleccion = anio, vbva(right_join(partidos_uy[, -3], dat, by = 'Partido'))) %>% as_tibble()
+    cbind(Eleccion = anio, vbva(right_join(partidos_uy[, c(1, 2)], dat, by = 'Partido'))) %>% as_tibble()
 }
 
 
@@ -41,7 +41,7 @@ ap <- function(datos, umbral = 2){
         Partido    = datos1$corte,
         Votos      = datos1$Votos,
         Porcentaje = datos1$Porcentaje
-    ) %>% arrange(-Porcentaje) %>% left_join(., partidos_uy[-3], by = 'Partido')
+    ) %>% arrange(-Porcentaje) %>% left_join(., partidos_uy[,c(1, 2)], by = 'Partido')
 
     out$Sigla <- ifelse(out$Partido == 'Voto Blanco/Anulado', 'VB/VA',
                         ifelse(out$Partido == 'Otros Partidos', 'OtrosP.', out$Sigla))
