@@ -1,5 +1,5 @@
 #' @title as_esaps
-#' @description Convierte salida de la funcion \code{\link{resultados_elecciones_uy}} al formato necesario para
+#' @description Convierte salida de la funcion \code{resultados_elecciones_uy} al formato necesario para
 #'     poder usar el paquete \code{esaps}.
 #' @param datos Datos de la clase \code{boreluy_elecciones}.
 #' @return data.frame.

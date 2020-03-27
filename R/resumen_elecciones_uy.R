@@ -12,7 +12,7 @@ resumen_elecciones_uy <- function(){
             as.data.frame() %>%
             pivot_wider(names_from = 'Var2', values_from = 'Freq')
     names(j2)[which(names(j2) == 'Consejo Nacional de Administracion')] <- 'CNA'
-    j2 <- j2[, c('Var1', 'Presidencial', 'Ballotage','Departamental', 'Legislativa', 'CNA')]
+    j2 <- j2[, c('Var1', 'Presidencial', 'Balotaje','Departamental', 'Legislativa', 'CNA')]
     j3 <- cbind(j2[1], ifelse(j2[-1] == 0, " ", "X"))
     rownames(j3) <- j3[,1]
     names(j3) <- paste0(" ", names(j3))

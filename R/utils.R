@@ -58,7 +58,7 @@ header <- function(base){
 
     cat("\n\n--- Cantidad de elecciones ------------------------------------\n\n")
     cat(crayon::green$bold("-->"), " Presidencial                       :", crayon::blue$bold(parcial[1], porcen[1]),"\n")
-    cat(crayon::green$bold("-->"), " Ballotage                          :", crayon::blue$bold(parcial[2], " ",  porcen[2]) ,"\n")
+    cat(crayon::green$bold("-->"), " Balotaje                           :", crayon::blue$bold(parcial[2], " ",  porcen[2]) ,"\n")
     cat(crayon::green$bold("-->"), " Departamental                      :", crayon::blue$bold(parcial[3], porcen[3]) ,"\n")
     cat(crayon::green$bold("-->"), " Legislativa                        :", crayon::blue$bold(parcial[4], porcen[4]) ,"\n")
     cat(crayon::green$bold("-->"), " Consejo Nacional de Administracion :", crayon::blue$bold(parcial[5], " ", porcen[5]) ,"\n\n")

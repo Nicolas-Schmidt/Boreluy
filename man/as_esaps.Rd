@@ -13,6 +13,6 @@ as_esaps(datos)
 data.frame.
 }
 \description{
-Convierte salida de la funcion \code{\link{resultados_elecciones_uy}} al formato necesario para
+Convierte salida de la funcion \code{resultados_elecciones_uy} al formato necesario para
     poder usar el paquete \code{esaps}.
 }
