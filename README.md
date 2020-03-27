@@ -43,44 +43,44 @@ resumen_elecciones_uy()
 #> --- Cantidad de elecciones ------------------------------------
 #> 
 #> -->  Presidencial                       : 18  (38%) 
-#> -->  Ballotage                          : 1    (2%) 
+#> -->  Balotaje                           : 1    (2%) 
 #> -->  Departamental                      : 15  (31%) 
 #> -->  Legislativa                        : 10  (21%) 
 #> -->  Consejo Nacional de Administracion : 4    (8%) 
 #> 
 #> ---------------------------------------------------------------
 #> 
-#>       Presidencial  Ballotage  Departamental  Legislativa  CNA
-#> 1918                                                    X     
-#> 1919                                                    X     
-#> 1920                                                         X
-#> 1922             X                                      X     
-#> 1925                                                    X     
-#> 1926             X                                      X     
-#> 1928                                                    X    X
-#> 1930             X                                      X    X
-#> 1931                                                    X     
-#> 1932                                                    X    X
-#> 1934                                                    X     
-#> 1938             X                                            
-#> 1942             X                         X                  
-#> 1946             X                         X                  
-#> 1950             X                         X                  
-#> 1954             X                         X                  
-#> 1958             X                         X                  
-#> 1962             X                         X                  
-#> 1966             X                         X                  
-#> 1971             X                         X                  
-#> 1984             X                         X                  
-#> 1989             X                         X                  
-#> 1994             X                         X                  
-#> 1999             X          X                                 
-#> 2000                                       X                  
-#> 2004             X                                            
-#> 2005                                       X                  
-#> 2010                                       X                  
-#> 2014             X                                            
-#> 2015                                       X                  
+#>       Presidencial  Balotaje  Departamental  Legislativa  CNA
+#> 1918                                                   X     
+#> 1919                                                   X     
+#> 1920                                                        X
+#> 1922             X                                     X     
+#> 1925                                                   X     
+#> 1926             X                                     X     
+#> 1928                                                   X    X
+#> 1930             X                                     X    X
+#> 1931                                                   X     
+#> 1932                                                   X    X
+#> 1934                                                   X     
+#> 1938             X                                           
+#> 1942             X                        X                  
+#> 1946             X                        X                  
+#> 1950             X                        X                  
+#> 1954             X                        X                  
+#> 1958             X                        X                  
+#> 1962             X                        X                  
+#> 1966             X                        X                  
+#> 1971             X                        X                  
+#> 1984             X                        X                  
+#> 1989             X                        X                  
+#> 1994             X                        X                  
+#> 1999             X         X                                 
+#> 2000                                      X                  
+#> 2004             X                                           
+#> 2005                                      X                  
+#> 2010                                      X                  
+#> 2014             X                                           
+#> 2015                                      X                  
 #> 
 #> ---------------------------------------------------------------
 ```
