@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## Boreluy <img src='man/figures/logo_Boreluy.png' align="right" height="180" />
+## Borel<span style="color:blue">**uy**</span> <img src='man/figures/logo_justino.png' align="right" height="180" />
 
-*Nicolás Schmidt, Antonio Cardarello, Diego Luján…*
+*Nicolás Schmidt, Antonio Cardarello, Diego Luján*
 
 <!-- badges: start -->
 
@@ -23,7 +23,7 @@ funciones que permiten obtener agregaciones de los datos (resultado por
 partido, por partido-departamento…).
 
 El manual del paquete esta
-[aquí](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
+[**aquí**](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
 
 ### Instalacion
 
@@ -198,3 +198,13 @@ senadores
 ```
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="60%" />
+
+-----
+
+##### Mantenedor
+
+Nicolás Schmidt (<nschmidt@cienciassociales.edu.uy>)
+
+##### Arte
+
+Nadia Repetto (<narepetto@gmail.com>)
