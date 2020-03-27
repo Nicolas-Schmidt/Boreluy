@@ -199,6 +199,34 @@ senadores
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="60%" />
 
+#### Aplicaciones alternativas
+
+``` r
+datos <- 
+    purrr::map_df(c(1984, 1989, 1994, 1999, 2004), resultado_elecciones_uy, 'Presidencial') %>% 
+    as_esaps()
+
+## Volatilidad electoral
+
+esaps::evolat(datos, "Pedersen")
+#>   election    unit eVolat
+#> 1     1989 Uruguay  14.14
+#> 2     1994 Uruguay  11.60
+#> 3     1999 Uruguay  11.12
+#> 4     2004 Uruguay  26.18
+
+
+## Número efectivo de partidos
+
+esaps::enp(datos)
+#>   election    unit  enp
+#> 1     1984 Uruguay 3.09
+#> 2     1989 Uruguay 3.66
+#> 3     1994 Uruguay 3.67
+#> 4     1999 Uruguay 3.29
+#> 5     2004 Uruguay 2.61
+```
+
 -----
 
 ##### Mantenedor

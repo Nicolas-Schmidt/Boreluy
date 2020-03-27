@@ -12,7 +12,7 @@
 
 resultado_elecciones_uy <- function(anio = max(elecciones_uy$anio),
                      tipo = NULL,
-                     por_departamento = TRUE
+                     por_departamento = FALSE
                      ){
 
     if(is.null(tipo)){tipo <- elecciones_uy$eleccion[which.max(elecciones_uy$anio)]}

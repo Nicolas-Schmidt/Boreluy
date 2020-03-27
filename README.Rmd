@@ -136,6 +136,25 @@ senadores
 
 ```
 
+#### Aplicaciones alternativas
+
+```{r}
+datos <- 
+    purrr::map_df(c(1984, 1989, 1994, 1999, 2004), resultado_elecciones_uy, 'Presidencial') %>% 
+    as_esaps()
+
+## Volatilidad electoral
+
+esaps::evolat(datos, "Pedersen")
+
+
+## Número efectivo de partidos
+
+esaps::enp(datos)
+
+```
+
+
 
 
 ```{r, echo = FALSE, message = FALSE}

@@ -7,7 +7,7 @@
 resultado_elecciones_uy(
   anio = max(elecciones_uy$anio),
   tipo = NULL,
-  por_departamento = TRUE
+  por_departamento = FALSE
 )
 }
 \arguments{
