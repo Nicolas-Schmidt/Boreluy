@@ -4,7 +4,9 @@
 \name{partidos_uy}
 \alias{partidos_uy}
 \title{partidos_uy}
-\format{data.frame con .. filas y 3 columnas}
+\format{
+data.frame con 107 filas y 6 columnas
+}
 \usage{
 data(partidos_uy)
 }
@@ -18,6 +20,10 @@ en el periodo citado.
    \item{Partido}{Nombre completo del partido politicao que participo en alguna eleccion nacional o departamental.}
    \item{Sigla}{Sigla del Partido Politico.}
    \item{Fundacion}{Anio de fundacion del partido.}
+   \item{primer_eleccion}{Anio de la primer eleccion en el periodo (1918-2020) en la que participa el partido politico.}
+   \item{alcance}{Esta variable puede asumir dos valores: 'Departametal' o 'Nacional'. Refiere al alcance que tiene el partido.}
+   \item{elecciones}{Vector de anios en los que participo de elecciones el partido politico}
+
 }
 }
 \keyword{datasets}

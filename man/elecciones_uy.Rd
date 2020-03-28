@@ -4,7 +4,9 @@
 \name{elecciones_uy}
 \alias{elecciones_uy}
 \title{elecciones_uy}
-\format{data.frame con 18122 filas y 24 columnas.}
+\format{
+data.frame con 23745 filas y 24 columnas.
+}
 \usage{
 data(elecciones_uy)
 }
@@ -16,7 +18,7 @@ Contiene el resultado de un conjunto de elecciones de nivel nacional de Uruaguat
    \item{anio_eleccion}{Anio en el que se realizo la eleccion.}
    \item{fecha}{Fecha en la que se realizo la eleccion.}
    \item{eleccion}{Tipo de eleccion.}
-   \item{concurrente}{Elecciones concurrentes. Si hay elecciones concurrentes la variable asume el valor 1, en caso contrario asume el vaor de 0. }
+   \item{concurrente}{Elecciones concurrentes. Si hay elecciones concurrentes la variable asume el valor 1, en caso contrario asume el vaor de 0. La concurrencia en este caso solo refiere a elecciones Presidenciales y Legislativas.}
    \item{parcial}{Elecciones parciales. El parlamento en la decada de los anios 20 se cambiaba por tercios. Si la variable asume el valor de 1 es que es una eleccion parcial en caso contrario asume el valor de 0.}
    \item{organo}{No,mbre del organo electivo.}
    \item{cargos}{Cantidad principal de cargos que se eligen en cada eleccion.}

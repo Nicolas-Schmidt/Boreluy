@@ -14,7 +14,9 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 status](https://travis-ci.com/Nicolas-Schmidt/Boreluy.svg?branch=master)](https://travis-ci.com/Nicolas-Schmidt/Boreluy)
 <!-- badges: end -->
 
-### Acerca de
+> Datos electorales de Uruguay 1918 - 2020.
+
+### Descripción
 
 Este paquete de R proporciona un conjunto de datos que contienen
 resultados electorales al máximo nivel de desagregación posible y
@@ -25,7 +27,9 @@ partido, por partido-departamento…).
 El manual del paquete esta
 [**aquí**](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
 
-### Instalacion
+> ¿Por qué Boreluy? ……
+
+### Instalación
 
 Versión en desarrollo
 
@@ -42,27 +46,27 @@ resumen_elecciones_uy()
 #> 
 #> --- Cantidad de elecciones ------------------------------------
 #> 
-#> -->  Presidencial                       : 18  (38%) 
+#> -->  Presidencial                       : 18  (34%) 
 #> -->  Balotaje                           : 1    (2%) 
-#> -->  Departamental                      : 15  (31%) 
-#> -->  Legislativa                        : 10  (21%) 
+#> -->  Departamental                      : 20  (38%) 
+#> -->  Legislativa                        : 10  (19%) 
 #> -->  Consejo Nacional de Administracion : 4    (8%) 
 #> 
 #> ---------------------------------------------------------------
 #> 
 #>       Presidencial  Balotaje  Departamental  Legislativa  CNA
 #> 1918                                                   X     
-#> 1919                                                   X     
+#> 1919                                      X            X     
 #> 1920                                                        X
 #> 1922             X                                     X     
-#> 1925                                                   X     
+#> 1925                                      X            X     
 #> 1926             X                                     X     
-#> 1928                                                   X    X
+#> 1928                                      X            X    X
 #> 1930             X                                     X    X
-#> 1931                                                   X     
+#> 1931                                      X            X     
 #> 1932                                                   X    X
 #> 1934                                                   X     
-#> 1938             X                                           
+#> 1938             X                        X                  
 #> 1942             X                        X                  
 #> 1946             X                        X                  
 #> 1950             X                        X                  
@@ -233,6 +237,6 @@ esaps::enp(datos)
 
 Nicolás Schmidt (<nschmidt@cienciassociales.edu.uy>)
 
-##### Arte
+##### Diseño de logo
 
 Nadia Repetto (<narepetto@gmail.com>)
