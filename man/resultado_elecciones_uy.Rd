@@ -5,9 +5,10 @@
 \title{Resultados electorales de elecciones nacionales y departamemntales}
 \usage{
 resultado_elecciones_uy(
-  anio = max(elecciones_uy$anio),
+  anio = integer(),
   tipo = NULL,
-  por_departamento = FALSE
+  por_departamento = FALSE,
+  vbva.rm = FALSE
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ resultado_elecciones_uy(
 \item{tipo}{Tipo de eleccion.}
 
 \item{por_departamento}{Por defecto es \code{FALSE}. Si es \code{TRUE} devuelve el resultado por departamento.}
+
+\item{vbva.rm}{Eliminar del calculo a los votos en blanco y anulados. Esto puede ser util para elecciones como el 'Balotaje'.}
 }
 \value{
 data.frame.

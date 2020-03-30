@@ -4,20 +4,23 @@
 #' @param anio Anio de eleccion.
 #' @param tipo Tipo de eleccion.
 #' @param por_departamento Por defecto es \code{FALSE}. Si es \code{TRUE} devuelve el resultado por departamento.
+#' @param vbva.rm Eliminar del calculo a los votos en blanco y anulados. Esto puede ser util para elecciones como el 'Balotaje'.
 #' @return data.frame.
 #' @examples
 #' resultado_elecciones_uy(anio = 1999, tipo = "Presidencial", por_departamento = FALSE)
 #' @export
 
 
-resultado_elecciones_uy <- function(anio = max(elecciones_uy$anio),
+resultado_elecciones_uy <- function(anio = integer(),
                      tipo = NULL,
-                     por_departamento = FALSE
+                     por_departamento = FALSE,
+                     vbva.rm = FALSE
                      ){
 
     if(is.null(tipo)){tipo <- elecciones_uy$eleccion[which.max(elecciones_uy$anio)]}
     if(tipo == 'Departamental'){por_departamento <-  TRUE}
     datos <- elecciones_uy %>% filter(anio_eleccion == anio,  eleccion == tipo)
+    if(rm.vbva){datos <- filter(datos, !partido %in% c('Voto en Blanco', 'Voto Anulado'))}
 
     if(por_departamento){
         a <- datos %>%
@@ -42,9 +45,6 @@ resultado_elecciones_uy <- function(anio = max(elecciones_uy$anio),
     class(sal) <- c(class(sal), "boreluy_elecciones")
     return(sal)
 }
-
-
-
 
 
 

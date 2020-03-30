@@ -5,7 +5,7 @@
 \alias{partidos_uy}
 \title{partidos_uy}
 \format{
-data.frame con 107 filas y 6 columnas
+data.frame con 112 filas y 6 columnas
 }
 \usage{
 data(partidos_uy)

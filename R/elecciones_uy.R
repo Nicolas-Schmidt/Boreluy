@@ -32,7 +32,7 @@
 #' @keywords datasets
 #' @name elecciones_uy
 #' @usage data(elecciones_uy)
-#' @format data.frame con 23745 filas y 24 columnas.
+#' @format data.frame con 24068 filas y 24 columnas.
 #' @details La unidad de analisis de esta base de datos es la fraccion a nivel departamental. Esto hace que se tenga el resultado electoral estructurado por cada fraccion de cada partido en cada departamento.
 'elecciones_uy'
 

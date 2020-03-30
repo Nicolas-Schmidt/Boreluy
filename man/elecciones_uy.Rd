@@ -5,7 +5,7 @@
 \alias{elecciones_uy}
 \title{elecciones_uy}
 \format{
-data.frame con 23745 filas y 24 columnas.
+data.frame con 24068 filas y 24 columnas.
 }
 \usage{
 data(elecciones_uy)
