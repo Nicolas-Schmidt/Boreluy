@@ -20,7 +20,7 @@ resultado_elecciones_uy <- function(anio = integer(),
     if(is.null(tipo)){tipo <- elecciones_uy$eleccion[which.max(elecciones_uy$anio)]}
     if(tipo == 'Departamental'){por_departamento <-  TRUE}
     datos <- elecciones_uy %>% filter(anio_eleccion == anio,  eleccion == tipo)
-    if(rm.vbva){datos <- filter(datos, !partido %in% c('Voto en Blanco', 'Voto Anulado'))}
+    if(vbva.rm){datos <- filter(datos, !partido %in% c('Voto en Blanco', 'Voto Anulado'))}
 
     if(por_departamento){
         a <- datos %>%
