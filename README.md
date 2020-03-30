@@ -98,7 +98,7 @@ library(ggplot2)
 library(magrittr)
 
 
-elec71 <- resultado_elecciones_uy(anio = 1971, tipo = 'Presidencial', por_departamento = FALSE)
+elec71 <- resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', por_departamento = FALSE)
 
 elec71
 #> # A tibble: 9 x 5
@@ -129,7 +129,7 @@ ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="60%" />
 
 ``` r
-elec71 <- resultado_elecciones_uy(1971, 'Presidencial', por_departamento = TRUE) 
+elec71 <- resultado_eleccion_uy(1971, 'Presidencial', por_departamento = TRUE) 
 
 ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
     geom_bar(stat="identity", position = "stack", fill = "#00A08A", color = "black") +
@@ -152,7 +152,7 @@ ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
 ``` r
 library(ggparliament)
 
-parlamento_uy(anio = 1971, por_departamento = FALSE)
+resultado_parlamento_uy(anio = 1971, por_departamento = FALSE)
 #> # A tibble: 3 x 5
 #>   Eleccion Partido          Sigla Diputados Senadores
 #>      <dbl> <chr>            <chr>     <dbl>     <dbl>
@@ -182,7 +182,7 @@ par_uy <- function(datos, titulo, mayoria, ...){
 
 ``` r
 diputados <- 
-    parlamento_uy(anio = 1971, por_departamento = FALSE) %>% 
+    resultado_parlamento_uy(anio = 1971, por_departamento = FALSE) %>% 
     Boreluy::as_parliament(., camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4')) %>% 
     par_uy(., titulo = "Camara de Representantes Uruguay 1971", mayoria = 51)
 
@@ -195,7 +195,7 @@ diputados
 
 ``` r
 senadores <- 
-    parlamento_uy(anio = 1971, por_departamento = FALSE) %>% 
+    resultado_parlamento_uy(anio = 1971, por_departamento = FALSE) %>% 
     Boreluy::as_parliament(., camara = 2, color = c('#E81B23', '#3333FF', '#B4B4B4')) %>% 
     par_uy(., titulo = "Camara de Senadores Uruguay 1971", mayoria = 16)
 
@@ -208,7 +208,7 @@ senadores
 
 ``` r
 datos <- 
-    purrr::map_df(c(1984, 1989, 1994, 1999, 2004), resultado_elecciones_uy, 'Presidencial') %>% 
+    purrr::map_df(c(1984, 1989, 1994, 1999, 2004), resultado_eleccion_uy, 'Presidencial') %>% 
     as_esaps()
 
 ## Volatilidad electoral

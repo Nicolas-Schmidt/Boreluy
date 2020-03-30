@@ -7,11 +7,11 @@
 #' @param vbva.rm Eliminar del calculo a los votos en blanco y anulados. Esto puede ser util para elecciones como el 'Balotaje'.
 #' @return data.frame.
 #' @examples
-#' resultado_elecciones_uy(anio = 1999, tipo = "Presidencial", por_departamento = FALSE)
+#' resultado_eleccion_uy(anio = 1999, tipo = "Presidencial", por_departamento = FALSE)
 #' @export
 
 
-resultado_elecciones_uy <- function(anio = integer(),
+resultado_eleccion_uy <- function(anio = integer(),
                      tipo = NULL,
                      por_departamento = FALSE,
                      vbva.rm = FALSE

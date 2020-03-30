@@ -7,11 +7,11 @@
 #'     el resultado va a ser contsnte en todos los departamemtos.
 #' @return data.frame.
 #' @examples
-#' parlamento_uy(1971, FALSE)
+#' resultado_parlamento_uy(1971, FALSE)
 #' @export
 
 
-parlamento_uy <- function(anio = 1971,
+resultado_parlamento_uy <- function(anio = 1971,
                        por_departamento = FALSE){
 
     elec <- elecciones_uy %>%
