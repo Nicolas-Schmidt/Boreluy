@@ -37,7 +37,28 @@ Versión en desarrollo
 source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 ```
 
-## Elecciones Uruguayas
+### Contenido del paquete
+
+#### Funciones
+
+| Función                   | Descripción                                                                                                                                                                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `resultado_eleccion_uy`   | Devuelve el resultado de una eleccion en cantidad de votos y porcentaje. Se puede obtener el resultado discriminado por departamento.                                                                                                                           |
+| `resultado_parlamento_uy` | Devuelve la cantida de diputados y senadores por partido. También se puede obtener el resultado discriminado por departameto.                                                                                                                                   |
+| `agrupar_partidos_uy`     | Permite obtener el resultado electoral agrupando los partdos que obtuvieron menos de determinado umbral de votos (el umbral es definido por el usuario en la función) y tambien agrupa por defecto a los votos en blanco y a los votos anulados.                |
+| `as_esaps`                | Convierte la salida de `resultado_eleccion_uy` el formatro de datos del paquete [`esaps`](https://nicolas-schmidt.github.io/esaps/index.html) que sirve para calcular indicadores relativos al sistema de partidos (volatilidad, número efectivo de partidos..) |
+| `as_parliament`           | Convierte la salida de \``resultado_parlamento_uy` el formatro de datos del paquete [`ggparliament`](https://github.com/RobWHickman/ggparliamentv) que sirve para graficar la composición del parlamento en formatro parlamento.                                |
+
+#### Conjuntos de datos
+
+| Nombre          | Descripción                                                                                                                                                                             |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `elecciones_uy` | Contiene los resultrados elctorales desagregado a nivel de departamento y en los casos que existe a nivel de sublema de las elecciones nacionales y departamentales dessde 1918 a 2019. |
+| `partidos_uy`   | La undiad de esta base de datos son los partidos polítcos que alguna vez participareon en alguna elección en el período 1918-2019.                                                      |
+
+### Ejemploss
+
+### Elecciones Uruguayas
 
 ``` r
 library(Boreluy)
@@ -90,7 +111,7 @@ resumen_elecciones_uy()
 #> ---------------------------------------------------------------
 ```
 
-## Resultados electorales
+### Resultados electorales
 
 ``` r
 
@@ -147,7 +168,7 @@ ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" height="100%" />
 
-## Parlamento
+### Parlamento
 
 ``` r
 library(ggparliament)

@@ -1,6 +1,6 @@
 #' @title as_parliament
 #'
-#' @description Convierte salida de la funcion \code{\link{parlamento_uy}} al formato necesario para
+#' @description Convierte salida de la funcion \code{\link{resultado_parlamento_uy}} al formato necesario para
 #'     poder usar el paquete \code{ggparliament}.
 #' @param datos Datos de la clase \code{boreluy_parlamento}.
 #' @param camara Por defecto es 1 que correponde a la camara baja o Camara de Represnetantes, si se
@@ -10,7 +10,7 @@
 #' @param ... argumentos adicionales de la funcion \code{\link[ggparliament]{parliament_data}}
 #' @return data.frame.
 #' @examples
-#' diputados <- parlamento_uy(anio = 1971, por_departamento = FALSE)
+#' diputados <- resultado_parlamento_uy(anio = 1971, por_departamento = FALSE)
 #' as_parliament(diputados, camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4'))
 #'
 #' # ggplot2::ggplot(diputados, aes(x, y, colour = party_long)) +

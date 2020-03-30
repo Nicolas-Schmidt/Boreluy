@@ -22,11 +22,11 @@ indica 2 corresponde a la camara alta o Camara de Senadores.}
 data.frame.
 }
 \description{
-Convierte salida de la funcion \code{\link{parlamento_uy}} al formato necesario para
+Convierte salida de la funcion \code{\link{resultado_parlamento_uy}} al formato necesario para
     poder usar el paquete \code{ggparliament}.
 }
 \examples{
-diputados <- parlamento_uy(anio = 1971, por_departamento = FALSE)
+diputados <- resultado_parlamento_uy(anio = 1971, por_departamento = FALSE)
 as_parliament(diputados, camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4'))
 
 # ggplot2::ggplot(diputados, aes(x, y, colour = party_long)) +
