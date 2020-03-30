@@ -46,11 +46,11 @@ resumen_elecciones_uy()
 #> 
 #> --- Cantidad de elecciones ------------------------------------
 #> 
-#> -->  Presidencial                       : 18  (34%) 
-#> -->  Balotaje                           : 1    (2%) 
-#> -->  Departamental                      : 20  (38%) 
+#> -->  Presidencial                       : 18  (33%) 
+#> -->  Balotaje                           : 2    (4%) 
+#> -->  Departamental                      : 20  (37%) 
 #> -->  Legislativa                        : 10  (19%) 
-#> -->  Consejo Nacional de Administracion : 4    (8%) 
+#> -->  Consejo Nacional de Administracion : 4    (7%) 
 #> 
 #> ---------------------------------------------------------------
 #> 
@@ -83,7 +83,7 @@ resumen_elecciones_uy()
 #> 2004             X                                           
 #> 2005                                      X                  
 #> 2010                                      X                  
-#> 2014             X                                           
+#> 2014             X         X                                 
 #> 2015                                      X                  
 #> 
 #> ---------------------------------------------------------------
