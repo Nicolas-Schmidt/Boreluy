@@ -27,7 +27,20 @@ partido, por partido-departamento…).
 El manual del paquete esta
 [**aquí**](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
 
-> ¿Por qué Boreluy? ……
+> ¿Por qué Boreluy? Al belga J. Borely se le atribuye la creación del
+> doble voto simultaneo (DVS). En conjunto con la representación
+> proporcional el DVS son dos ideas que caracterizaron particularmente
+> al sistema electoral uruguayo. No solo en Uruguay generó influencia el
+> belga, de quien no se conoce más que una única obra. En Uruguay se lo
+> conoció a través de Justino Jiménez de Arechaga (un destacado
+> constitucionalista uruguayo) quien enviara el proyecto de ley que
+> incorporaba la representación proporcional, el doble voto simultaneo y
+> el reconocimiento de los partidos políticos. El nombre del paquete
+> lleva el nombre del belga con una pequeña modificación (la
+> incorporación de la letra ‘u’) para señalar que hace referencia a
+> Uruguay dado que Borely también influenció en otros países. El logo es
+> una caricatura de una foto de Justino Jiménez de Arechaga ya que no se
+> conocen fotos de J. Borely.
 
 ### Instalación
 
@@ -56,7 +69,7 @@ source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 | `elecciones_uy` | Contiene los resultrados elctorales desagregado a nivel de departamento y en los casos que existe a nivel de sublema de las elecciones nacionales y departamentales dessde 1918 a 2019. |
 | `partidos_uy`   | La undiad de esta base de datos son los partidos polítcos que alguna vez participareon en alguna elección en el período 1918-2019.                                                      |
 
-### Ejemploss
+### Ejemplos
 
 ### Elecciones Uruguayas
 
