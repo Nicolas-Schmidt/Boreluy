@@ -48,7 +48,7 @@ resultado_eleccion_uy <- function(anio = integer(),
     sal <- sigla(dat = ab, anio = anio)
     if(parlamento){
         par <- rpuy(anio = anio, por_departamento = por_departamento)
-        sal <- full_join(sal, par)
+        sal <- full_join(sal, par, by = 'Partido')
         sal[is.na(sal)] <- 0L
     }
     attr(sal, 'parlamento') <- parlamento

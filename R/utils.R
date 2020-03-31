@@ -9,7 +9,8 @@
 
 vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'anio_eleccion', 'partido',
           'departamento', 'camara', 'bancas', 'Bancas', 'Senadores', 'Diputados',
-          'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'corte')
+          'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'corte', 'Partido',
+          'seats')
 
 if(getRversion() >= "2.15.1"){
     utils::globalVariables(c('.', vars))
