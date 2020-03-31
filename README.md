@@ -24,7 +24,7 @@ comparable entre elecciones. Adicionalmente provee un conjunto de
 funciones que permiten obtener agregaciones de los datos (resultado por
 partido, por partido-departamento…).
 
-El manual del paquete esta
+El manual del paquete se puede encontrar
 [**aquí**](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
 
 > ¿Por qué Boreluy? Al belga J. Borely se le atribuye la creación del
@@ -32,21 +32,20 @@ El manual del paquete esta
 > proporcional el DVS son dos ideas que caracterizaron particularmente
 > al sistema electoral uruguayo. No solo en Uruguay generó influencia el
 > belga, de quien no se conoce más que una única obra. En Uruguay se lo
-> conoció a través de Justino Jiménez de Arechaga (un destacado
+> conoció a través de Justino Jiménez de Aréchaga (un destacado
 > constitucionalista uruguayo) quien enviara el proyecto de ley que
 > incorporaba la representación proporcional, el doble voto simultaneo y
-> el reconocimiento de los partidos políticos. El nombre del paquete
-> lleva el nombre del belga con una pequeña modificación (la
+> el reconocimiento de los partidos políticos en Uruguay. El nombre del
+> paquete lleva el nombre del belga con una pequeña modificación (la
 > incorporación de la letra ‘u’) para señalar que hace referencia a
 > Uruguay dado que Borely también influenció en otros países. El logo es
-> una caricatura de una foto de Justino Jiménez de Arechaga ya que no se
+> una caricatura de una foto de Justino Jiménez de Aréchaga ya que no se
 > conocen fotos de J. Borely.
 
 ### Instalación
 
-Versión en desarrollo
-
 ``` r
+## Versión en desarrollo
 source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 ```
 
@@ -80,10 +79,10 @@ resumen_elecciones_uy()
 #> 
 #> --- Cantidad de elecciones ------------------------------------
 #> 
-#> -->  Presidencial                       : 19  (35%) 
-#> -->  Balotaje                           : 2    (4%) 
-#> -->  Departamental                      : 20  (36%) 
-#> -->  Legislativa                        : 10  (18%) 
+#> -->  Presidencial                       : 20  (34%) 
+#> -->  Balotaje                           : 4    (7%) 
+#> -->  Departamental                      : 20  (34%) 
+#> -->  Legislativa                        : 10  (17%) 
 #> -->  Consejo Nacional de Administracion : 4    (7%) 
 #> 
 #> ---------------------------------------------------------------
@@ -116,10 +115,11 @@ resumen_elecciones_uy()
 #> 2000                                      X                  
 #> 2004             X                                           
 #> 2005                                      X                  
+#> 2009             X         X                                 
 #> 2010                                      X                  
 #> 2014             X         X                                 
 #> 2015                                      X                  
-#> 2019             X                                           
+#> 2019             X         X                                 
 #> 
 #> ---------------------------------------------------------------
 ```
@@ -265,6 +265,8 @@ esaps::enp(datos)
 #> 4     1999 Uruguay 3.29
 #> 5     2004 Uruguay 2.61
 ```
+
+<img src='man/figures/indicadores.gif'/>
 
 -----
 
