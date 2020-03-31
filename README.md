@@ -33,14 +33,15 @@ El manual del paquete se puede encontrar
 > al sistema electoral uruguayo. No solo en Uruguay generó influencia el
 > belga, de quien no se conoce más que una única obra. En Uruguay se lo
 > conoció a través de Justino Jiménez de Aréchaga (un destacado
-> constitucionalista uruguayo) quien enviara el proyecto de ley que
-> incorporaba la representación proporcional, el doble voto simultaneo y
-> el reconocimiento de los partidos políticos en Uruguay. El nombre del
-> paquete lleva el nombre del belga con una pequeña modificación (la
-> incorporación de la letra ‘u’) para señalar que hace referencia a
-> Uruguay dado que Borely también influenció en otros países. El logo es
-> una caricatura de una foto de Justino Jiménez de Aréchaga ya que no se
-> conocen fotos de J. Borely.
+> constitucionalista uruguayo) quien enviara un proyecto de ley a
+> principios del siglo XX que incorporaba la representación
+> proporcional, el doble voto simultaneo y el reconocimiento de los
+> partidos políticos en Uruguay. El nombre del paquete lleva el nombre
+> del belga con una pequeña modificación (la incorporación de la letra
+> ‘u’) para señalar que hace referencia a Uruguay dado que Borely
+> también influenció en otros países. El logo es una caricatura de una
+> foto de Justino Jiménez de Aréchaga ya que no se conocen fotos de J.
+> Borely.
 
 ### Instalación
 
