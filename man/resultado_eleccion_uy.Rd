@@ -8,6 +8,7 @@ resultado_eleccion_uy(
   anio = integer(),
   tipo = NULL,
   por_departamento = FALSE,
+  parlamento = FALSE,
   vbva.rm = FALSE
 )
 }
@@ -17,6 +18,8 @@ resultado_eleccion_uy(
 \item{tipo}{Tipo de eleccion.}
 
 \item{por_departamento}{Por defecto es \code{FALSE}. Si es \code{TRUE} devuelve el resultado por departamento.}
+
+\item{parlamento}{Por defecto es \code{FALSE}. Si es \code{TRUE} devuelve la cantidad de diputados y Senadores que obtuvo cada partido.}
 
 \item{vbva.rm}{Eliminar del calculo a los votos en blanco y anulados. Esto puede ser util para elecciones como el 'Balotaje'.}
 }
@@ -28,5 +31,8 @@ Devuelve el resultado electoral por eleccion en cantdiad de votos
     y en porcentaje.
 }
 \examples{
-resultado_eleccion_uy(anio = 1999, tipo = "Presidencial", por_departamento = FALSE)
+resultado_eleccion_uy(anio = 1971,
+                      tipo = "Presidencial",
+                      por_departamento = FALSE,
+                      parlamento = TRUE)
 }

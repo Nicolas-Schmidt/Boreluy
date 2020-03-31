@@ -4,16 +4,21 @@
 #' @param anio Anio de eleccion.
 #' @param tipo Tipo de eleccion.
 #' @param por_departamento Por defecto es \code{FALSE}. Si es \code{TRUE} devuelve el resultado por departamento.
+#' @param parlamento Por defecto es \code{FALSE}. Si es \code{TRUE} devuelve la cantidad de diputados y Senadores que obtuvo cada partido.
 #' @param vbva.rm Eliminar del calculo a los votos en blanco y anulados. Esto puede ser util para elecciones como el 'Balotaje'.
 #' @return data.frame.
 #' @examples
-#' resultado_eleccion_uy(anio = 1999, tipo = "Presidencial", por_departamento = FALSE)
+#' resultado_eleccion_uy(anio = 1971,
+#'                       tipo = "Presidencial",
+#'                       por_departamento = FALSE,
+#'                       parlamento = TRUE)
 #' @export
 
 
 resultado_eleccion_uy <- function(anio = integer(),
                      tipo = NULL,
                      por_departamento = FALSE,
+                     parlamento = FALSE,
                      vbva.rm = FALSE
                      ){
 
@@ -41,10 +46,24 @@ resultado_eleccion_uy <- function(anio = integer(),
             arrange(-Porcentaje)
     }
     sal <- sigla(dat = ab, anio = anio)
+    if(parlamento){
+        par <- rpuy(anio = anio, por_departamento = por_departamento)
+        sal <- full_join(sal, par)
+        sal[is.na(sal)] <- 0L
+    }
+    attr(sal, 'parlamento') <- parlamento
     attr(sal, 'departamento') <- por_departamento
     class(sal) <- c(class(sal), "boreluy_elecciones")
     return(sal)
 }
+
+
+
+
+
+
+
+
 
 
 

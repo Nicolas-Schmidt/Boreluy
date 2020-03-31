@@ -9,3 +9,7 @@
 * se agrega el argumento 'vbva.rm' a la funcion 'resultados_electorales_uy'. Este argumento permite eliminar de los calculos a los votos en blanco y anulados.
 * Cambió el nombre de la función 'parlamento_uy' a 'resultado_parlamemto_uy'.
 * Cambió el nombre de la función 'resultado_elecciones_uy' a 'resultado_eleccion_uy'.
+
+## Boreluy 0.1.0.905
+
+* Se eliminó la función 'resultado_parlamemto_uy' y pasó a argumento de la función 'resultado_elecciones_uy' como 'parlamento'.

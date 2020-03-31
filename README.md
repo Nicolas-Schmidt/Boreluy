@@ -54,13 +54,12 @@ source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 
 #### Funciones
 
-| Función                   | Descripción                                                                                                                                                                                                                                                     |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `resultado_eleccion_uy`   | Devuelve el resultado de una eleccion en cantidad de votos y porcentaje. Se puede obtener el resultado discriminado por departamento.                                                                                                                           |
-| `resultado_parlamento_uy` | Devuelve la cantida de diputados y senadores por partido. También se puede obtener el resultado discriminado por departameto.                                                                                                                                   |
-| `agrupar_partidos_uy`     | Permite obtener el resultado electoral agrupando los partdos que obtuvieron menos de determinado umbral de votos (el umbral es definido por el usuario en la función) y tambien agrupa por defecto a los votos en blanco y a los votos anulados.                |
-| `as_esaps`                | Convierte la salida de `resultado_eleccion_uy` el formatro de datos del paquete [`esaps`](https://nicolas-schmidt.github.io/esaps/index.html) que sirve para calcular indicadores relativos al sistema de partidos (volatilidad, número efectivo de partidos..) |
-| `as_parliament`           | Convierte la salida de \``resultado_parlamento_uy` el formatro de datos del paquete [`ggparliament`](https://github.com/RobWHickman/ggparliament) que sirve para graficar la composición del parlamento en formatro parlamento.                                 |
+| Función                 | Descripción                                                                                                                                                                                                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `resultado_eleccion_uy` | Devuelve el resultado de una eleccion en cantidad de votos y porcentaje. También se puede obtener el resultado discriminado por departamento y la cantidad de cargos al parlamento en caso de elecciones Legislativas o Presidenciales concurrentes con elecciones legislativas |
+| `agrupar_partidos_uy`   | Permite obtener el resultado electoral agrupando los partdos que obtuvieron menos de determinado umbral de votos (el umbral es definido por el usuario en la función) y tambien agrupa por defecto a los votos en blanco y a los votos anulados.                                |
+| `as_esaps`              | Convierte la salida de `resultado_eleccion_uy` el formatro de datos del paquete [`esaps`](https://nicolas-schmidt.github.io/esaps/index.html) que sirve para calcular indicadores relativos al sistema de partidos (volatilidad, número efectivo de partidos..)                 |
+| `as_parliament`         | Convierte la salida de \``resultado_parlamento_uy` el formatro de datos del paquete [`ggparliament`](https://github.com/RobWHickman/ggparliament) que sirve para graficar la composición del parlamento en formatro parlamento.                                                 |
 
 #### Conjuntos de datos
 
@@ -187,13 +186,20 @@ ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
 ``` r
 library(ggparliament)
 
-resultado_parlamento_uy(anio = 1971, por_departamento = FALSE)
-#> # A tibble: 3 x 5
-#>   Eleccion Partido          Sigla Diputados Senadores
-#>      <dbl> <chr>            <chr>     <dbl>     <dbl>
-#> 1     1971 Partido Colorado PC           41        14
-#> 2     1971 Partido Nacional PN           40        12
-#> 3     1971 Frente Amplio    FA           18         5
+resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE)
+#> Joining, by = "Partido"
+#> # A tibble: 9 x 7
+#>   Eleccion Partido                   Sigla  Votos Porcentaje Diputados Senadores
+#>      <dbl> <chr>                     <chr>  <dbl>      <dbl>     <dbl>     <dbl>
+#> 1     1971 Partido Colorado          PC    681624      39.8         41        14
+#> 2     1971 Partido Nacional          PN    668822      39.0         40        12
+#> 3     1971 Frente Amplio             FA    304275      17.8         18         5
+#> 4     1971 Voto Anulado              VB     42508       2.48         0         0
+#> 5     1971 Union Radical Cristiana   URC     8844       0.52         0         0
+#> 6     1971 Voto en Blanco            VA      6139       0.36         0         0
+#> 7     1971 Partido de Jubilados y P~ PJP      288       0.02         0         0
+#> 8     1971 Movimiento Justiciero     MJ       241       0.01         0         0
+#> 9     1971 Partido Juventud por el ~ PJDO      25       0            0         0
 
 
 # creamos una funcion para graficar parlamento
@@ -217,9 +223,10 @@ par_uy <- function(datos, titulo, mayoria, ...){
 
 ``` r
 diputados <- 
-    resultado_parlamento_uy(anio = 1971, por_departamento = FALSE) %>% 
+    resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE) %>% 
     Boreluy::as_parliament(., camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4')) %>% 
     par_uy(., titulo = "Camara de Representantes Uruguay 1971", mayoria = 51)
+#> Joining, by = "Partido"
 
 diputados
 ```
@@ -230,9 +237,10 @@ diputados
 
 ``` r
 senadores <- 
-    resultado_parlamento_uy(anio = 1971, por_departamento = FALSE) %>% 
+    resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE) %>% 
     Boreluy::as_parliament(., camara = 2, color = c('#E81B23', '#3333FF', '#B4B4B4')) %>% 
     par_uy(., titulo = "Camara de Senadores Uruguay 1971", mayoria = 16)
+#> Joining, by = "Partido"
 
 senadores
 ```

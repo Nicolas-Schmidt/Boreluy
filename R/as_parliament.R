@@ -1,6 +1,6 @@
 #' @title as_parliament
 #'
-#' @description Convierte salida de la funcion \code{\link{resultado_parlamento_uy}} al formato necesario para
+#' @description Convierte salida de la funcion \code{\link{resultado_eleccion_uy}} al formato necesario para
 #'     poder usar el paquete \code{ggparliament}.
 #' @param datos Datos de la clase \code{boreluy_parlamento}.
 #' @param camara Por defecto es 1 que correponde a la camara baja o Camara de Represnetantes, si se
@@ -10,7 +10,7 @@
 #' @param ... argumentos adicionales de la funcion \code{\link[ggparliament]{parliament_data}}
 #' @return data.frame.
 #' @examples
-#' diputados <- resultado_parlamento_uy(anio = 1971, por_departamento = FALSE)
+#' diputados <- resultado_eleccion_uy(anio = 1971, parlamento = TRUE)
 #' as_parliament(diputados, camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4'))
 #'
 #' # ggplot2::ggplot(diputados, aes(x, y, colour = party_long)) +
@@ -30,7 +30,10 @@ as_parliament <- function(datos,
                           tipo = "semicircle",  ...){
 
 
-    if(!inherits(datos, "boreluy_parlamento")){stop("Los datos deben ser una salida de la funcion `parlamento_uy`.", call. = FALSE)}
+    if(!inherits(datos, "boreluy_elecciones")){stop("Los datos deben ser una salida de la funcion `parlamento_uy`.", call. = FALSE)}
+
+    datos[datos == 0] <- NA
+    datos <- na.omit(datos)
 
     if(camara == 1){
         camara <- 'Representantes'
