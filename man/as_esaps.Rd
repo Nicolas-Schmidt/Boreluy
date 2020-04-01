@@ -13,6 +13,22 @@ as_esaps(datos)
 data.frame.
 }
 \description{
-Convierte salida de la funcion \code{resultados_elecciones_uy} al formato necesario para
+Convierte salida de la funcion \code{resultado_eleccion_uy} al formato necesario para
     poder usar el paquete \code{esaps}.
+}
+\examples{
+elec <- resultado_eleccion_uy(anio = 1971,
+                              tipo = "Presidencial",
+                              por_departamento = FALSE,
+                              parlamento = TRUE)
+
+elec <- as_esaps(elec)
+
+# Numero efectivo de partidos
+# esaps::enp(elec)
+
+# Desproporcionalidad electoral
+# esaps::dispro(elec, method = 1)
+
+
 }

@@ -50,9 +50,9 @@ resultado_eleccion_uy <- function(anio = integer(),
         par <- rpuy(anio = anio, por_departamento = por_departamento)
         sal <- full_join(sal, par, by = 'Partido')
         sal[is.na(sal)] <- 0L
+        class(sal) <- c(class(sal), "be_parlamento")
     }
-    attr(sal, 'parlamento') <- parlamento
-    attr(sal, 'departamento') <- por_departamento
+    if('Departamento' %in% names(sal)){class(sal) <- c(class(sal), "be_departamento")}
     class(sal) <- c(class(sal), "boreluy_elecciones")
     return(sal)
 }

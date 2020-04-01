@@ -43,4 +43,25 @@ Contiene el resultado de un conjunto de elecciones de nivel nacional de Uruaguat
 
 La unidad de analisis de esta base de datos es la fraccion a nivel departamental. Esto hace que se tenga el resultado electoral estructurado por cada fraccion de cada partido en cada departamento.
 }
+\references{
+\insertRef{fabregat1946}{Boreluy}
+
+\insertRef{fabregat1950}{Boreluy}
+
+\insertRef{fabregat1958}{Boreluy}
+
+\insertRef{fabregat1962}{Boreluy}
+
+\insertRef{fabregat1966}{Boreluy}
+
+\insertRef{fabregat1971}{Boreluy}
+
+\insertRef{albornoz1984}{Boreluy}
+
+\insertRef{albornoz1989}{Boreluy}
+
+\insertRef{marius1999}{Boreluy}
+
+\insertRef{marius2004}{Boreluy}
+}
 \keyword{datasets}

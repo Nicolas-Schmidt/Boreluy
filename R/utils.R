@@ -5,12 +5,13 @@
 #' @importFrom stats na.omit
 #' @importFrom purrr map
 #' @importFrom magrittr %>%
+#' @importFrom Rdpack reprompt
 
 
 vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'anio_eleccion', 'partido',
           'departamento', 'camara', 'bancas', 'Bancas', 'Senadores', 'Diputados',
           'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'corte', 'Partido',
-          'seats')
+          'seats', 'Eleccion')
 
 if(getRversion() >= "2.15.1"){
     utils::globalVariables(c('.', vars))

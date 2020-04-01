@@ -1,8 +1,23 @@
 #' @title as_esaps
-#' @description Convierte salida de la funcion \code{resultados_elecciones_uy} al formato necesario para
+#' @description Convierte salida de la funcion \code{resultado_eleccion_uy} al formato necesario para
 #'     poder usar el paquete \code{esaps}.
 #' @param datos Datos de la clase \code{boreluy_elecciones}.
 #' @return data.frame.
+#' @examples
+#' elec <- resultado_eleccion_uy(anio = 1971,
+#'                               tipo = "Presidencial",
+#'                               por_departamento = FALSE,
+#'                               parlamento = TRUE)
+#'
+#' elec <- as_esaps(elec)
+#'
+#' # Numero efectivo de partidos
+#' # esaps::enp(elec)
+#'
+#' # Desproporcionalidad electoral
+#' # esaps::dispro(elec, method = 1)
+#'
+#'
 #' @export
 
 as_esaps <- function(datos){
@@ -21,16 +36,35 @@ as_esaps <- function(datos){
         party    = datos$Partido,
         votes    = datos$Porcentaje
     )
-    if(attr(datos, 'parlamento')){
-        if(attr(datos, 'departamento')){
+    if(inherits(datos, "be_parlamento")){
+        if(inherits(datos, "be_departamento")){
             stop('No es posible compilar las bancas por departamento para hacer calculos de desproporcionalidad: use `por_departamento = TRUE`.',  call. = FALSE)
         }else{
             datos2 <- datos %>%
-                mutate(seats = round(datos$Diputados / sum(datos$Diputados),1)*100) %>%
-                select(Partido, seats)
-            names(datos2)[1] <- 'party'
+                group_by(Eleccion) %>%
+                mutate(seats = round(Diputados / sum(Diputados),3)*100) %>%
+                ungroup() %>%
+                select(Eleccion, Partido, seats)
+            names(datos2)[1:2] <- c('election', 'party')
         }
-        salida <- full_join(salida, datos2, by = 'party')
+        salida <- full_join(salida, datos2, by = c('party', 'election'))
     }
-    as.data.frame(salida)
+    salida
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
