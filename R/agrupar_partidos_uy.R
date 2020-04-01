@@ -1,5 +1,5 @@
 #' @title Agrupa partidos politicos
-#' @description Permite agrupar partidos politicos de la salida de la funcion \code{resultados_elecciones_uy}.
+#' @description Permite agrupar partidos politicos de la salida de la funcion \code{resultado_eleccion_uy}.
 #'     Junta las categorias de Voto en Blanco y Voto Anulado y en Otros Partidos a los que no alcanzan determinado umbral.
 #' @param datos data.frame de clase \code{boreluy_elecciones} que devuelve la funcion \code{resultados_elecciones_uy}.
 #' @param umbral Valor relativo al porcentaje bajo el cual se van a agrupar a los partidos como 'Otros Partidos'

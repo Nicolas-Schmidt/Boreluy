@@ -15,7 +15,7 @@ agrupar_partidos_uy(datos, umbral = 2)
 data.frame.
 }
 \description{
-Permite agrupar partidos politicos de la salida de la funcion \code{resultados_elecciones_uy}.
+Permite agrupar partidos politicos de la salida de la funcion \code{resultado_eleccion_uy}.
     Junta las categorias de Voto en Blanco y Voto Anulado y en Otros Partidos a los que no alcanzan determinado umbral.
 }
 \examples{
