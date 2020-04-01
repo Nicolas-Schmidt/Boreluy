@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## Borel<span style="color:blue">**uy**</span> <img src='man/figures/logo_justino.png' align="right" height="180" />
+## Borel<b style='color:blue'>uy</b> <img src='man/figures/logo_justino.png' align="right" height="180" />
 
 *Nicolás Schmidt, Antonio Cardarello, Diego Luján*
 
@@ -41,7 +41,7 @@ El manual del paquete se puede encontrar
 > ‘u’) para señalar que hace referencia a Uruguay dado que Borely
 > también influenció en otros países. El logo es una caricatura de una
 > foto de Justino Jiménez de Aréchaga ya que no se conocen fotos de J.
-> Borely.
+> Borely <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
 
 ### Instalación
 
@@ -187,7 +187,6 @@ ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
 library(ggparliament)
 
 resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE)
-#> Joining, by = "Partido"
 #> # A tibble: 9 x 7
 #>   Eleccion Partido                   Sigla  Votos Porcentaje Diputados Senadores
 #>      <dbl> <chr>                     <chr>  <dbl>      <dbl>     <dbl>     <dbl>
@@ -226,7 +225,6 @@ diputados <-
     resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE) %>% 
     Boreluy::as_parliament(., camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4')) %>% 
     par_uy(., titulo = "Camara de Representantes Uruguay 1971", mayoria = 51)
-#> Joining, by = "Partido"
 
 diputados
 ```
@@ -240,7 +238,6 @@ senadores <-
     resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE) %>% 
     Boreluy::as_parliament(., camara = 2, color = c('#E81B23', '#3333FF', '#B4B4B4')) %>% 
     par_uy(., titulo = "Camara de Senadores Uruguay 1971", mayoria = 16)
-#> Joining, by = "Partido"
 
 senadores
 ```
@@ -286,3 +283,12 @@ Nicolás Schmidt (<nschmidt@cienciassociales.edu.uy>)
 ##### Diseño de logo
 
 Nadia Repetto (<narepetto@gmail.com>)
+
+#### Notas
+
+-----
+
+<sup><a id="fn.1" href="#fnr.1">1</a></sup> Ver Buquer, Daniel (2004)
+*Elecciones y sistema electoral*. En: El Uruguay del siglo XX. La
+Política. Ediciones de la Banda Oriental - Instituto de Ciencia
+Política.
