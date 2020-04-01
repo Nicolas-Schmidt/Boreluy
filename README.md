@@ -63,10 +63,10 @@ source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 
 #### Conjuntos de datos
 
-| Nombre          | Descripción                                                                                                                                                                             |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `elecciones_uy` | Contiene los resultrados elctorales desagregado a nivel de departamento y en los casos que existe a nivel de sublema de las elecciones nacionales y departamentales dessde 1918 a 2019. |
-| `partidos_uy`   | La undiad de esta base de datos son los partidos polítcos que alguna vez participareon en alguna elección en el período 1918-2019.                                                      |
+| Nombre          | Descripción                                                                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `elecciones_uy` | Contiene los resultrados elctorales desagregado a nivel de departamento y en los casos que existe a nivel de sublema de las elecciones nacionales y departamentales desde 1918 hasta 2019. |
+| `partidos_uy`   | La undiad de esta base de datos son los partidos polítcos que alguna vez participaron en alguna elección en el período 1918 - 2019.                                                        |
 
 ### Ejemplos
 
