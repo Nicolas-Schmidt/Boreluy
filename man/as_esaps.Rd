@@ -27,7 +27,15 @@ elec <- as_esaps(elec)
 # Numero efectivo de partidos
 # esaps::enp(elec)
 
-# Desproporcionalidad electoral
+
+
+# Desproporcionalidad electoral#'
+elec <- resultado_eleccion_uy(anio = 1971,
+                              tipo = "Presidencial",
+                              por_departamento = TRUE,
+                              parlamento = FALSE)
+elec <- as_esaps(elec)
+# esaps::psns(tidy_data = elec, method = 1, pns = TRUE)
 # esaps::dispro(elec, method = 1)
 
 

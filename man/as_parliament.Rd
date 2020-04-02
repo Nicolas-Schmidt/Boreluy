@@ -26,7 +26,7 @@ Convierte salida de la funcion \code{\link{resultado_eleccion_uy}} al formato ne
     poder usar el paquete \code{ggparliament}.
 }
 \examples{
-diputados <- resultado_eleccion_uy(anio = 1971, parlamento = TRUE)
+diputados <- resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE)
 as_parliament(diputados, camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4'))
 
 # ggplot2::ggplot(diputados, aes(x, y, colour = party_long)) +

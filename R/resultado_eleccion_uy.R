@@ -22,7 +22,7 @@ resultado_eleccion_uy <- function(anio = integer(),
                      vbva.rm = FALSE
                      ){
 
-    if(is.null(tipo)){tipo <- elecciones_uy$eleccion[which.max(elecciones_uy$anio)]}
+    #if(is.null(tipo)){tipo <- elecciones_uy$eleccion[which.max(elecciones_uy$anio)]}
     if(tipo == 'Departamental'){por_departamento <-  TRUE}
     datos <- elecciones_uy %>% filter(anio_eleccion == anio,  eleccion == tipo)
     if(vbva.rm){datos <- filter(datos, !partido %in% c('Voto en Blanco', 'Voto Anulado'))}
@@ -48,11 +48,15 @@ resultado_eleccion_uy <- function(anio = integer(),
     sal <- sigla(dat = ab, anio = anio)
     if(parlamento){
         par <- rpuy(anio = anio, por_departamento = por_departamento)
-        sal <- full_join(sal, par, by = 'Partido')
+        if(por_departamento){
+            sal <- full_join(sal, par, by = c('Partido', 'Departamento'))
+        }else{
+            sal <- full_join(sal, par, by = c('Partido'))
+        }
         sal[is.na(sal)] <- 0L
         class(sal) <- c(class(sal), "be_parlamento")
     }
-    if('Departamento' %in% names(sal)){class(sal) <- c(class(sal), "be_departamento")}
+    if(por_departamento){class(sal) <- c(class(sal), "be_departamento")}
     class(sal) <- c(class(sal), "boreluy_elecciones")
     return(sal)
 }

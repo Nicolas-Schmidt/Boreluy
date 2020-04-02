@@ -14,7 +14,15 @@
 #' # Numero efectivo de partidos
 #' # esaps::enp(elec)
 #'
-#' # Desproporcionalidad electoral
+#'
+#'
+#' # Desproporcionalidad electoral#'
+#' elec <- resultado_eleccion_uy(anio = 1971,
+#'                               tipo = "Presidencial",
+#'                               por_departamento = TRUE,
+#'                               parlamento = FALSE)
+#' elec <- as_esaps(elec)
+#' # esaps::psns(tidy_data = elec, method = 1, pns = TRUE)
 #' # esaps::dispro(elec, method = 1)
 #'
 #'
@@ -38,31 +46,33 @@ as_esaps <- function(datos){
     )
     if(inherits(datos, "be_parlamento")){
         if(inherits(datos, "be_departamento")){
-            stop('No es posible compilar las bancas por departamento para hacer calculos de desproporcionalidad: use `por_departamento = TRUE`.',  call. = FALSE)
+            stop('No es posible compilar las bancas por departamento para hacer calculos de desproporcionalidad: use `resultado_eleccion_uy(., por_departamento = FALSE)`.',  call. = FALSE)
         }else{
             datos2 <- datos %>%
                 group_by(Eleccion) %>%
-                mutate(seats = round(Diputados / sum(Diputados),3)*100) %>%
+                mutate(seats = Diputados / sum(Diputados)*100) %>%
                 ungroup() %>%
                 select(Eleccion, Partido, seats)
             names(datos2)[1:2] <- c('election', 'party')
         }
         salida <- full_join(salida, datos2, by = c('party', 'election'))
     }
+
+    if(inherits(datos, "be_departamento")){
+        names(datos)[2] <- 'party'
+        salida <- datos %>%
+            group_by(party) %>%
+            mutate(votes_par = sum(Votos)) %>%
+            ungroup() %>%
+            group_by(Departamento) %>%
+            mutate(votes_nac = round(votes_par / sum(votes_par)*100, 3)) %>%
+            ungroup() %>%
+            select(party, votes_nac) %>%
+            distinct() %>%
+            full_join(salida, ., by = 'party')
+    }
     salida
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
