@@ -30,26 +30,15 @@ sigla <- function(dat, anio){
 }
 
 
+
 ap <- function(datos, umbral = 2){
-
-    datos$corte <- ifelse(datos$Porcentaje < umbral, 'Otros Partidos', datos$Partido)
-    datos$corte <- ifelse(datos$Partido %in% c('Voto Anulado', 'Voto en Blanco'), 'Voto Blanco/Anulado', datos$corte)
     datos1 <- datos %>%
-        group_by(corte) %>%
-        summarise(Porcentaje = sum(Porcentaje), Votos = sum(Votos))
-
-    out <- tibble(
-        Eleccion   = unique(datos$Eleccion),
-        Partido    = datos1$corte,
-        Votos      = datos1$Votos,
-        Porcentaje = datos1$Porcentaje
-    ) %>% arrange(-Porcentaje) %>% left_join(., partidos_uy[,c(1, 2)], by = 'Partido')
-
-    out$Sigla <- ifelse(out$Partido == 'Voto Blanco/Anulado', 'VB/VA',
-                        ifelse(out$Partido == 'Otros Partidos', 'OtrosP.', out$Sigla))
-
-    out
+        summarise(Votos = sum(Votos), Porcentaje = sum(Porcentaje)) %>%
+        rename(Partido = corte) %>%
+        left_join(., partidos_uy[,c("Partido","Sigla")], by = 'Partido')
+    datos1
 }
+
 
 
 header <- function(base){
