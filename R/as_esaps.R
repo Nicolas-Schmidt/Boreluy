@@ -59,17 +59,17 @@ as_esaps <- function(datos){
     }
 
     if(inherits(datos, "be_departamento")){
-        names(datos)[2] <- 'party'
+        names(datos)[c(1, 2, 4)] <- c('election','party', 'unit')
         salida <- datos %>%
-            group_by(party) %>%
+            group_by(party, election) %>%
             mutate(votes_par = sum(Votos)) %>%
             ungroup() %>%
-            group_by(Departamento) %>%
-            mutate(votes_nac = round(votes_par / sum(votes_par)*100, 3)) %>%
+            group_by(unit, election) %>%
+            mutate(votes_nac = round(votes_par / sum(votes_par)*100, 2)) %>%
             ungroup() %>%
-            select(party, votes_nac) %>%
+            select(party, votes_nac, election, unit) %>%
             distinct() %>%
-            full_join(salida, ., by = 'party')
+            full_join(salida, ., by = c('election', 'unit', 'party'))
     }
     salida
 }
