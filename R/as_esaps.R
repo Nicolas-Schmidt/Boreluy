@@ -57,7 +57,6 @@ as_esaps <- function(datos){
         }
         salida <- full_join(salida, datos2, by = c('party', 'election'))
     }
-
     if(inherits(datos, "be_departamento")){
         names(datos)[c(1, 2, 4)] <- c('election','party', 'unit')
         salida <- datos %>%

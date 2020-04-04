@@ -29,12 +29,9 @@ as_parliament <- function(datos,
                           color = NULL,
                           tipo = "semicircle",  ...){
 
-
     if(!inherits(datos, "boreluy_elecciones")){stop("Los datos deben ser una salida de la funcion `parlamento_uy`.", call. = FALSE)}
-
     datos[datos == 0] <- NA
     datos <- na.omit(datos)
-
     if(camara == 1){
         camara <- 'Representantes'
         seats  <- datos$Diputados
@@ -42,7 +39,6 @@ as_parliament <- function(datos,
         camara <- 'Senadores'
         seats  <- datos$Senadores
     }
-
     newdata <- data.frame(year        = datos$Eleccion,
                           country     = 'Uruguay',
                           house       = camara,
@@ -60,7 +56,6 @@ as_parliament <- function(datos,
         parl_rows = nrow(newdata),
         party_seats = newdata$seats
     )
-
     out
 }
 
