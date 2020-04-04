@@ -1,5 +1,5 @@
 
-#' @importFrom dplyr filter select group_by mutate if_else full_join left_join arrange summarise right_join ungroup distinct summarize
+#' @importFrom dplyr filter select group_by rename mutate if_else full_join left_join arrange summarise right_join ungroup distinct summarize
 #' @importFrom tidyr pivot_wider
 #' @importFrom tibble as_tibble tibble
 #' @importFrom stats na.omit
@@ -11,7 +11,8 @@
 vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'anio_eleccion', 'partido',
           'departamento', 'camara', 'bancas', 'Bancas', 'Senadores', 'Diputados',
           'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'corte', 'Partido',
-          'seats', 'Eleccion', 'party', 'Departamento', 'votes_par', 'votes_nac')
+          'seats', 'Eleccion', 'party', 'Departamento', 'votes_par', 'votes_nac',
+          'election', 'unit', 'Sigla')
 
 if(getRversion() >= "2.15.1"){
     utils::globalVariables(c('.', vars))
