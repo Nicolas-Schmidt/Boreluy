@@ -274,6 +274,10 @@ esaps::enp(datos)
 
 <img src='man/figures/indicadores.gif'/>
 
+#### Elecciones departamentales
+
+<img src='man/figures/mapa_departamentos.png'/>
+
 -----
 
 ##### Mantenedor

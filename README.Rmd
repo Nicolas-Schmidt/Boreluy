@@ -186,6 +186,23 @@ esaps::enp(datos)
 
 
 
+#### Elecciones departamentales
+
+
+<img src='man/figures/mapa_departamentos.png'/>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```{r, echo = FALSE, message = FALSE}
 manual <- function(){
