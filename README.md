@@ -235,9 +235,7 @@ diputados
 senadores
 ```
 
-<img src='man/figures/representantes.png' width="350" height="270" />
-</a>
-<img src='man/figures/senadores.png'  width="350" height="270" /></a>
+<img src='man/figures/parla.png' height="300" />
 
 #### Aplicaciones alternativas
 
