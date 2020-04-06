@@ -141,28 +141,27 @@ par_uy <- function(datos, titulo, mayoria, ...){
 
 ```
 
-#### Camara de Representantes
+#### Camara de Representantes y de Senadores
 
-```{r}
+```{r, eval = FALSE}
 diputados <- 
     resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE) %>% 
     Boreluy::as_parliament(., camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4')) %>% 
     par_uy(., titulo = "Camara de Representantes Uruguay 1971", mayoria = 51)
 
-diputados
-```
-
-#### Camara de Senadores
-
-```{r}
 senadores <- 
     resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE) %>% 
     Boreluy::as_parliament(., camara = 2, color = c('#E81B23', '#3333FF', '#B4B4B4')) %>% 
     par_uy(., titulo = "Camara de Senadores Uruguay 1971", mayoria = 16)
 
+diputados
 senadores
-
 ```
+
+
+<img src='man/figures/representantes.png' width="400" height="270" /> </a> <img src='man/figures/senadores.png'  width="400" height="270" /></a>
+
+
 
 #### Aplicaciones alternativas
 
@@ -180,23 +179,23 @@ esaps::evolat(datos, "Pedersen")
 
 esaps::enp(datos)
 
+
 ```
 
-<img src='man/figures/indicadores.gif'/>
+###### Volatilidad electoral, Número efectivo de partidos e Índice de nacionalización partidario
+
+<img src='man/figures/indicadores.gif' width="430" height="352" /> </a> <img src='man/figures/nacionaliza.gif'  width="430" height="352" /></a>
 
 
 
-#### Elecciones departamentales
+
+
+
+
+###### Elecciones departamentales
 
 
 <img src='man/figures/mapa_departamentos.png'/>
-
-
-
-
-
-
-
 
 
 
@@ -218,6 +217,15 @@ manual <- function(){
 }
 manual()
 ```
+
+
+
+
+
+
+
+
+
 
 
 ---
