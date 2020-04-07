@@ -5,7 +5,7 @@
 #' resumen_elecciones_uy()
 #' @export
 
-resumen_elecciones_uy <- function(){
+resumen_elecciones_uy <- function() {
 
     j <- elecciones_uy %>% select(anio_eleccion, eleccion) %>% distinct()
     j2 <- table(j$anio_eleccion, j$eleccion) %>%

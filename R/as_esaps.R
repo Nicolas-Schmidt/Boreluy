@@ -30,12 +30,12 @@
 
 as_esaps <- function(datos){
 
-    if(!inherits(datos, "boreluy_elecciones")){
+    if(!inherits(datos, "boreluy_elecciones")) {
         stop("Los datos deben ser una salida de la funcion `resultados_elecciones_uy`.", call. = FALSE)
         }
-    if(any(names(datos) == 'Departamento')){
+    if(any(names(datos) == 'Departamento')) {
         unidad <- datos$Departamento
-    }else{
+    } else {
         unidad <- 'Uruguay'
     }
     salida <- tibble::tibble(
@@ -44,10 +44,10 @@ as_esaps <- function(datos){
         party    = datos$Partido,
         votes    = datos$Porcentaje
     )
-    if(inherits(datos, "be_parlamento")){
-        if(inherits(datos, "be_departamento")){
+    if(inherits(datos, "be_parlamento")) {
+        if(inherits(datos, "be_departamento")) {
             stop('No es posible compilar las bancas por departamento para hacer calculos de desproporcionalidad: use `resultado_eleccion_uy(., por_departamento = FALSE)`.',  call. = FALSE)
-        }else{
+        } else {
             datos2 <- datos %>%
                 group_by(Eleccion) %>%
                 mutate(seats = Diputados / sum(Diputados)*100) %>%
@@ -57,7 +57,7 @@ as_esaps <- function(datos){
         }
         salida <- full_join(salida, datos2, by = c('party', 'election'))
     }
-    if(inherits(datos, "be_departamento")){
+    if(inherits(datos, "be_departamento")) {
         names(datos)[c(1, 2, 4)] <- c('election','party', 'unit')
         salida <- datos %>%
             group_by(party, election) %>%

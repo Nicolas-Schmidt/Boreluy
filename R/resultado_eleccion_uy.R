@@ -19,15 +19,14 @@ resultado_eleccion_uy <- function(anio = integer(),
                      tipo = NULL,
                      por_departamento = FALSE,
                      parlamento = FALSE,
-                     vbva.rm = FALSE
-                     ){
+                     vbva.rm = FALSE) {
 
-    #if(is.null(tipo)){tipo <- elecciones_uy$eleccion[which.max(elecciones_uy$anio)]}
-    if(tipo == 'Departamental'){por_departamento <-  TRUE}
+    if(tipo == 'Departamental') {por_departamento <-  TRUE}
     datos <- elecciones_uy %>% filter(anio_eleccion == anio,  eleccion == tipo)
-    if(vbva.rm){datos <- filter(datos, !partido %in% c('Voto en Blanco', 'Voto Anulado'))}
+    if(vbva.rm) {datos <- filter(datos, !partido %in% c('Voto en Blanco', 'Voto Anulado'))}
 
-    if(por_departamento){
+    if(por_departamento) {
+
         a <- datos %>%
             group_by(partido, departamento) %>%
             summarise(Votos = sum(votos, na.rm = TRUE))
@@ -38,7 +37,7 @@ resultado_eleccion_uy <- function(anio = integer(),
             split(., .$departamento) %>%
             do.call(rbind,.) %>%
             select(-total)
-    }else{
+    } else {
         ab <- datos %>%
             group_by(partido) %>%
             summarise(Votos = sum(votos)) %>%
@@ -46,17 +45,17 @@ resultado_eleccion_uy <- function(anio = integer(),
             arrange(-Porcentaje)
     }
     sal <- sigla(dat = ab, anio = anio)
-    if(parlamento){
+    if(parlamento) {
         par <- rpuy(anio = anio, por_departamento = por_departamento)
-        if(por_departamento){
+        if(por_departamento) {
             sal <- full_join(sal, par, by = c('Partido', 'Departamento'))
-        }else{
+        } else {
             sal <- full_join(sal, par, by = c('Partido'))
         }
         sal[is.na(sal)] <- 0L
         class(sal) <- c(class(sal), "be_parlamento")
     }
-    if(por_departamento){class(sal) <- c(class(sal), "be_departamento")}
+    if(por_departamento) {class(sal) <- c(class(sal), "be_departamento")}
     class(sal) <- c(class(sal), "boreluy_elecciones")
     return(sal)
 }

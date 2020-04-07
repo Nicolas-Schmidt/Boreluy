@@ -11,17 +11,16 @@
 
 agrupar_partidos_uy <- function(datos, umbral = 2){
 
-    if(!inherits(datos, "boreluy_elecciones")){stop("Los datos deben ser una salida de la funcion `resultados_elecciones_uy`.", call. = FALSE)}
+    if(!inherits(datos, "boreluy_elecciones")) {stop("Los datos deben ser una salida de la funcion `resultados_elecciones_uy`.", call. = FALSE)}
     datos$corte <- ifelse(datos$Porcentaje < umbral, 'Otros Partidos', datos$Partido)
     datos$corte <- ifelse(datos$Partido %in% c('Voto Anulado', 'Voto en Blanco'), 'Voto Blanco/Anulado', datos$corte)
 
-    if(inherits(datos, "be_departamento")){
+    if(inherits(datos, "be_departamento")) {
         datos1 <- datos %>% group_by(corte, Eleccion, Departamento)
         datos1 <-  ap(datos1, umbral = umbral) %>%
             select(Eleccion, Departamento, Partido, Sigla, Votos, Porcentaje) %>%
             arrange(Eleccion, Departamento,  -Votos)
-
-    }else{
+    } else {
         datos1 <- datos %>% group_by(corte, Eleccion)
         datos1 <-  ap(datos1, umbral = umbral) %>%
             select(Eleccion, Partido, Sigla, Votos, Porcentaje)%>%

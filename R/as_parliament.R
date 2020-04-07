@@ -29,13 +29,13 @@ as_parliament <- function(datos,
                           color = NULL,
                           tipo = "semicircle",  ...){
 
-    if(!inherits(datos, "boreluy_elecciones")){stop("Los datos deben ser una salida de la funcion `parlamento_uy`.", call. = FALSE)}
+    if(!inherits(datos, "boreluy_elecciones")) {stop("Los datos deben ser una salida de la funcion `parlamento_uy`.", call. = FALSE)}
     datos[datos == 0] <- NA
     datos <- na.omit(datos)
-    if(camara == 1){
+    if(camara == 1) {
         camara <- 'Representantes'
         seats  <- datos$Diputados
-    }else{
+    } else {
         camara <- 'Senadores'
         seats  <- datos$Senadores
     }
