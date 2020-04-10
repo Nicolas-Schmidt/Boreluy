@@ -288,7 +288,7 @@ Nadia Repetto (<narepetto@gmail.com>)
 
 -----
 
-<sup><a id="fn.1" href="#fnr.1">1</a></sup> Ver Buquer, Daniel (2004)
+<sup><a id="fn.1" href="#fnr.1">1</a></sup> Ver Buquet, Daniel (2004)
 *Elecciones y sistema electoral*. En: El Uruguay del siglo XX. La
 Política. Ediciones de la Banda Oriental - Instituto de Ciencia
 Política.
