@@ -12,6 +12,7 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Travis build
 status](https://travis-ci.com/Nicolas-Schmidt/Boreluy.svg?branch=master)](https://travis-ci.com/Nicolas-Schmidt/Boreluy)
+![Minimal RVersion](https://img.shields.io/badge/R%3E%3D-3.6.0-blue.svg)
 <!-- badges: end -->
 
 > Datos electorales de Uruguay 1918 - 2020.
@@ -129,6 +130,7 @@ resumen_elecciones_uy()
 ``` r
 
 library(ggplot2)
+#> Warning: package 'ggplot2' was built under R version 3.6.3
 library(magrittr)
 
 
