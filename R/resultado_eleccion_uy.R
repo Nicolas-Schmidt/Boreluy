@@ -40,8 +40,8 @@ resultado_eleccion_uy <- function(anio = integer(),
     } else {
         ab <- datos %>%
             group_by(partido) %>%
-            summarise(Votos = sum(votos)) %>%
-            mutate(Porcentaje = round((Votos / sum(Votos) * 100),2)) %>%
+            summarise(Votos = sum(votos, na.rm = TRUE)) %>%
+            mutate(Porcentaje = round((Votos / sum(Votos, na.rm = TRUE) * 100),2)) %>%
             arrange(-Porcentaje)
     }
     sal <- sigla(dat = ab, anio = anio)
