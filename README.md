@@ -10,8 +10,6 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Travis build
-status](https://travis-ci.com/Nicolas-Schmidt/Boreluy.svg?branch=master)](https://travis-ci.com/Nicolas-Schmidt/Boreluy)
 ![Minimal RVersion](https://img.shields.io/badge/R%3E%3D-3.6.0-blue.svg)
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
