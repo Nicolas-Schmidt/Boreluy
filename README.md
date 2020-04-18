@@ -151,7 +151,7 @@ ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
     facet_wrap(~Departamento)
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" height="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ### Parlamento
 

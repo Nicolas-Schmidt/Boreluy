@@ -81,7 +81,7 @@ grafico_elecciones_uy()
 
 ### Resultados electorales
 
-```{r}
+```{r, fig.width=13, fig.height=4}
 
 library(ggplot2)
 library(magrittr)
@@ -104,7 +104,7 @@ ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
 ```
 
 
-```{r, out.width = "100%", out.height = "100%"}
+```{r, fig.width=13, fig.height=8}
 elec71 <- resultado_eleccion_uy(1971, 'Presidencial', por_departamento = TRUE) 
 
 ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
