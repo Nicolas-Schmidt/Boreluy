@@ -4,10 +4,13 @@
 \alias{resumen_elecciones_uy}
 \title{resumen elecciones uy}
 \usage{
-resumen_elecciones_uy()
+resumen_elecciones_uy(tabla = TRUE)
+}
+\arguments{
+\item{tabla}{Por defecto es  \code{TRUE}. Devuelve una tabla resumen por anio.}
 }
 \value{
-data.frame
+Si tabla es \code{TRUE} devuelve un data.frame, si es  \code{FALSE} imprime un resumen.
 }
 \description{
 Resumen de la cantidad de elecciones por organo y por anio.

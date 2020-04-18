@@ -6,13 +6,14 @@
 #' @importFrom purrr map
 #' @importFrom magrittr %>%
 #' @importFrom Rdpack reprompt
-
+#' @importFrom ggparliament parliament_data
+#' @importFrom ggplot2 ggplot aes geom_tile scale_fill_manual labs theme element_text theme_minimal
 
 vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'anio_eleccion', 'partido',
           'departamento', 'camara', 'bancas', 'Bancas', 'Senadores', 'Diputados',
           'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'corte', 'Partido',
           'seats', 'Eleccion', 'party', 'Departamento', 'votes_par', 'votes_nac',
-          'election', 'unit', 'Sigla')
+          'election', 'unit', 'Sigla', 'Var1', 'Var2', 'Freq')
 
 if(getRversion() >= "2.15.1"){
     utils::globalVariables(c('.', vars))
@@ -112,3 +113,12 @@ rpuy <- function(anio = integer(), por_departamento = FALSE){
 
     return(a)
 }
+
+
+init_summ <- function(){
+    j <- elecciones_uy %>% select(anio_eleccion, eleccion) %>% distinct()
+    j2 <- table(j$anio_eleccion, j$eleccion) %>% as.data.frame()
+    j2
+
+}
+

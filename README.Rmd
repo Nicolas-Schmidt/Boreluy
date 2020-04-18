@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "60%"
+  out.width = "100%"
 )
 ```
 
@@ -71,10 +71,14 @@ source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 
 
 ### Elecciones Uruguayas
-```{r}
+```{r, fig.width=12, fig.height=3}
 library(Boreluy)
-resumen_elecciones_uy()
+resumen_elecciones_uy(tabla = FALSE)
+
+grafico_elecciones_uy()
 ```
+
+
 ### Resultados electorales
 
 ```{r}

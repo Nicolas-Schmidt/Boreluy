@@ -77,7 +77,7 @@ source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 
 ``` r
 library(Boreluy)
-resumen_elecciones_uy()
+resumen_elecciones_uy(tabla = FALSE)
 #> 
 #> 
 #> --- Cantidad de elecciones ------------------------------------
@@ -89,43 +89,11 @@ resumen_elecciones_uy()
 #> -->  Consejo Nacional de Administracion : 4    (7%) 
 #> 
 #> ---------------------------------------------------------------
-#> 
-#>       Presidencial  Balotaje  Departamental  Legislativa  CNA
-#> 1918                                                   X     
-#> 1919                                      X            X     
-#> 1920                                                        X
-#> 1922             X                                     X     
-#> 1925                                      X            X     
-#> 1926             X                                     X     
-#> 1928                                      X            X    X
-#> 1930             X                                     X    X
-#> 1931                                      X            X     
-#> 1932                                                   X    X
-#> 1934                                                   X     
-#> 1938             X                        X                  
-#> 1942             X                        X                  
-#> 1946             X                        X                  
-#> 1950             X                        X                  
-#> 1954             X                        X                  
-#> 1958             X                        X                  
-#> 1962             X                        X                  
-#> 1966             X                        X                  
-#> 1971             X                        X                  
-#> 1984             X                        X                  
-#> 1989             X                        X                  
-#> 1994             X                        X                  
-#> 1999             X         X                                 
-#> 2000                                      X                  
-#> 2004             X                                           
-#> 2005                                      X                  
-#> 2009             X         X                                 
-#> 2010                                      X                  
-#> 2014             X         X                                 
-#> 2015                                      X                  
-#> 2019             X         X                                 
-#> 
-#> ---------------------------------------------------------------
+
+grafico_elecciones_uy()
 ```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ### Resultados electorales
 
@@ -164,7 +132,7 @@ ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
     theme_minimal()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="60%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ``` r
 elec71 <- resultado_eleccion_uy(1971, 'Presidencial', por_departamento = TRUE) 
