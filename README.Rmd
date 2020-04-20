@@ -19,13 +19,6 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/Nicolas-Schmidt/Boreluy/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/Boreluy/actions)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-![Minimal RVersion](https://img.shields.io/badge/R%3E%3D-3.6.0-blue.svg)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <!-- badges: end --> 
 
 > Datos electorales de Uruguay 1918 - 2020. 
@@ -36,7 +29,7 @@ Este paquete de R proporciona un conjunto de datos que contienen resultados elec
 
 El manual del paquete se puede encontrar [__aquí__](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
 
-> ¿Por qué Boreluy? Al belga J. Borely se le atribuye la creación del doble voto simultaneo (DVS). En conjunto con la representación proporcional el DVS son dos ideas que caracterizaron particularmente al sistema electoral uruguayo. No solo en Uruguay generó influencia el belga, de quien no se conoce más que una única obra. En Uruguay se lo conoció a través de Justino Jiménez de Aréchaga (un destacado constitucionalista uruguayo) quien enviara un proyecto de ley a principios del siglo XX que incorporaba la representación proporcional, el doble voto simultaneo y el reconocimiento de los partidos políticos en Uruguay. El nombre del paquete lleva el nombre del belga con una pequeña modificación (la incorporación de la letra 'u') para señalar que hace referencia a Uruguay dado que Borely también influenció en otros países. El logo es una caricatura de una foto de Justino Jiménez de Aréchaga ya que no se conocen fotos de J. Borely <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
+> ¿Por qué Boreluy? Al belga J. Borely se le atribuye la creación del doble voto simultaneo (DVS). En conjunto con la representación proporcional el DVS son dos ideas que caracterizaron particularmente al sistema electoral uruguayo. No solo en Uruguay generó influencia el belga, de quien no se conoce más que una única obra. En Uruguay se lo conoció a través de Justino Jiménez de Aréchaga (un destacado constitucionalista uruguayo) quien enviara un proyecto de ley en 1876 que incorporaba la representación proporcional, el doble voto simultaneo y el reconocimiento de los partidos políticos en Uruguay. El nombre del paquete lleva el nombre del belga con una pequeña modificación (la incorporación de la letra 'u') para señalar que hace referencia a Uruguay dado que Borely también influenció en otros países. El logo es una caricatura de una foto de Justino Jiménez de Aréchaga ya que no se conocen fotos de J. Borely <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
 
 
 
