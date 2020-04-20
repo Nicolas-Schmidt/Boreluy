@@ -7,6 +7,11 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/Nicolas-Schmidt/Boreluy/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/Boreluy/actions)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- badges: end -->
 
 > Datos electorales de Uruguay 1918 - 2020.
