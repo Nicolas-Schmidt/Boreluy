@@ -31,7 +31,7 @@ grafico_elecciones_uy <- function(){
         mutate(Var2 = ifelse(as.character(Var2) == 'Consejo Nacional de Administracion', 'CNA',
                              as.character(Var2)),
                Var1 = as.numeric(as.character(Var1)),
-               Freq = ifelse(Freq == 1, "Hubo eleccion", "No hubo eleccion")) %>%
+               Freq = ifelse(Freq == 1, "Si", "No")) %>%
         ggplot(aes(factor(Var1), Var2, fill= factor(Freq))) +
         geom_tile(color = "white") +
         scale_fill_manual(values = c('#6CD2F7','#FEF732')) +
