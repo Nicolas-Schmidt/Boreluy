@@ -13,14 +13,11 @@ as_esaps(datos)
 data.frame.
 }
 \description{
-Convierte salida de la funcion \code{resultado_eleccion_uy} al formato necesario para
+Convierte salida de la funcion \code{nacional_uy} al formato necesario para
     poder usar el paquete \code{esaps}.
 }
 \examples{
-elec <- resultado_eleccion_uy(anio = 1971,
-                              tipo = "Presidencial",
-                              por_departamento = FALSE,
-                              parlamento = TRUE)
+elec <- nacional_uy(eleccion = 1971)
 
 elec <- as_esaps(elec)
 
@@ -28,15 +25,11 @@ elec <- as_esaps(elec)
 # esaps::enp(elec)
 
 
-
-# Desproporcionalidad electoral#'
-elec <- resultado_eleccion_uy(anio = 1971,
-                              tipo = "Presidencial",
-                              por_departamento = TRUE,
-                              parlamento = FALSE)
-elec <- as_esaps(elec)
-# esaps::psns(tidy_data = elec, method = 1, pns = TRUE)
+# Desproporcionalidad electoral
 # esaps::dispro(elec, method = 1)
+
+# Nacionalizacion del sistema de partidos y de los partidos politicos
+# esaps::psns(tidy_data = elec, method = 1, pns = TRUE)
 
 
 }

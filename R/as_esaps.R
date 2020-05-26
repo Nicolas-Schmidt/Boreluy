@@ -1,13 +1,10 @@
 #' @title as_esaps
-#' @description Convierte salida de la funcion \code{resultado_eleccion_uy} al formato necesario para
+#' @description Convierte salida de la funcion \code{nacional_uy} al formato necesario para
 #'     poder usar el paquete \code{esaps}.
 #' @param datos Datos de la clase \code{boreluy_elecciones}.
 #' @return data.frame.
 #' @examples
-#' elec <- resultado_eleccion_uy(anio = 1971,
-#'                               tipo = "Presidencial",
-#'                               por_departamento = FALSE,
-#'                               parlamento = TRUE)
+#' elec <- nacional_uy(eleccion = 1971)
 #'
 #' elec <- as_esaps(elec)
 #'
@@ -15,63 +12,45 @@
 #' # esaps::enp(elec)
 #'
 #'
-#'
-#' # Desproporcionalidad electoral#'
-#' elec <- resultado_eleccion_uy(anio = 1971,
-#'                               tipo = "Presidencial",
-#'                               por_departamento = TRUE,
-#'                               parlamento = FALSE)
-#' elec <- as_esaps(elec)
-#' # esaps::psns(tidy_data = elec, method = 1, pns = TRUE)
+#' # Desproporcionalidad electoral
 #' # esaps::dispro(elec, method = 1)
+#'
+#' # Nacionalizacion del sistema de partidos y de los partidos politicos
+#' # esaps::psns(tidy_data = elec, method = 1, pns = TRUE)
 #'
 #'
 #' @export
 
 as_esaps <- function(datos){
 
-    if(!inherits(datos, "boreluy_elecciones")) {
-        stop("Los datos deben ser una salida de la funcion `resultados_elecciones_uy`.", call. = FALSE)
-        }
-    if(any(names(datos) == 'Departamento')) {
-        unidad <- datos$Departamento
-    } else {
-        unidad <- 'Uruguay'
-    }
+    if(!inherits(datos, "boreluy_nacional")) stop("Los datos deben ser una salida de la funcion `nacional_uy`.", call. = FALSE)
+    if(any(names(datos) == 'Departamento')) unidad <- datos$Departamento else unidad <- 'Uruguay'
     salida <- tibble::tibble(
-        election = datos$Eleccion,
+        election = substring(datos$Fecha, 1, 4),
         unit     = unidad,
         party    = datos$Partido,
         votes    = datos$Porcentaje
     )
-    if(inherits(datos, "be_parlamento")) {
-        if(inherits(datos, "be_departamento")) {
-            stop('No es posible compilar las bancas por departamento para hacer calculos de desproporcionalidad: use `resultado_eleccion_uy(., por_departamento = FALSE)`.',  call. = FALSE)
-        } else {
-            datos2 <- datos %>%
-                group_by(Eleccion) %>%
+    if('Diputados' %in% names(datos)){
+        if('Departamento' %in% names(datos)){
+            datos2 <- datos %>% group_by(Fecha, Departamento) %>%
                 mutate(seats = Diputados / sum(Diputados)*100) %>%
                 ungroup() %>%
-                select(Eleccion, Partido, seats)
-            names(datos2)[1:2] <- c('election', 'party')
+                select(Fecha, Partido, seats, Departamento) %>%
+                rename(unit = Departamento)
+        } else {
+            datos2 <- datos %>% group_by(Fecha) %>%
+                mutate(seats = Diputados / sum(Diputados)*100) %>%
+                ungroup() %>%
+                select(Fecha, Partido, seats)
         }
-        salida <- full_join(salida, datos2, by = c('party', 'election'))
+        datos2 <- datos2 %>% mutate(Fecha = substring(datos$Fecha, 1, 4))
+        names(datos2)[1:2] <- c('election', 'party')
+        salida <- full_join(salida, datos2, by = intersect(names(salida), names(datos2)))
     }
-    if(inherits(datos, "be_departamento")) {
-        names(datos)[c(1, 2, 4)] <- c('election','party', 'unit')
-        salida <- datos %>%
-            group_by(party, election) %>%
-            mutate(votes_par = sum(Votos)) %>%
-            ungroup() %>%
-            group_by(unit, election) %>%
-            mutate(votes_nac = round(votes_par / sum(votes_par)*100, 2)) %>%
-            ungroup() %>%
-            select(party, votes_nac, election, unit) %>%
-            distinct() %>%
-            full_join(salida, ., by = c('election', 'unit', 'party'))
-    }
-    salida
+     return(salida %>% arrange(election, unit))
 }
+
 
 
 

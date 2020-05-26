@@ -1,6 +1,6 @@
 #' @title as_parliament
 #'
-#' @description Convierte salida de la funcion \code{\link{resultado_eleccion_uy}} al formato necesario para
+#' @description Convierte salida de la funcion \code{\link{nacional_uy}} al formato necesario para
 #'     poder usar el paquete \code{ggparliament}.
 #' @param datos Datos de la clase \code{boreluy_parlamento}.
 #' @param camara Por defecto es 1 que correponde a la camara baja o Camara de Represnetantes, si se
@@ -10,7 +10,7 @@
 #' @param ... argumentos adicionales de la funcion \code{\link[ggparliament]{parliament_data}}
 #' @return data.frame.
 #' @examples
-#' diputados <- resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE)
+#' diputados <- nacional_uy(eleccion = 1971)
 #' as_parliament(diputados, camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4'))
 #'
 #' # ggplot2::ggplot(diputados, aes(x, y, colour = party_long)) +
@@ -26,10 +26,14 @@
 
 as_parliament <- function(datos,
                           camara = 1,
-                          color = NULL,
+                          color,
                           tipo = "semicircle",  ...){
 
-    if(!inherits(datos, "boreluy_elecciones")) {stop("Los datos deben ser una salida de la funcion `parlamento_uy`.", call. = FALSE)}
+
+    m <- "Los datos deben ser una salida de la funcion `nacional_uy(., por departamento = FALSE)`."
+    if(!inherits(datos, "boreluy_nacional")) stop(m, call. = FALSE)
+    if('Departamento' %in% names(datos)) stop(m, call. = FALSE)
+
     datos[datos == 0] <- NA
     datos <- na.omit(datos)
     if(camara == 1) {
@@ -39,14 +43,14 @@ as_parliament <- function(datos,
         camara <- 'Senadores'
         seats  <- datos$Senadores
     }
-    newdata <- data.frame(year        = datos$Eleccion,
+    newdata <- data.frame(year        = as.numeric(substring(datos$Fecha, 1, 4)),
                           country     = 'Uruguay',
                           house       = camara,
                           party_long  = datos$Partido,
                           party_short = datos$Sigla,
                           seats       = seats,
                           government  = c(1, rep(0, nrow(datos)-1)),
-                          colour      = color,
+                          colour      = sample(grDevices::colors(), size = length(seats)),
                           stringsAsFactors = FALSE
     )
 
@@ -58,5 +62,4 @@ as_parliament <- function(datos,
     )
     out
 }
-
 

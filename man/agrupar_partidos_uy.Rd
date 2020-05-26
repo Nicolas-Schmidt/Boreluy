@@ -19,6 +19,6 @@ Permite agrupar partidos politicos de la salida de la funcion \code{resultado_el
     Junta las categorias de Voto en Blanco y Voto Anulado y en Otros Partidos a los que no alcanzan determinado umbral.
 }
 \examples{
-elec99 <- resultado_eleccion_uy(anio = 1999, tipo = "Presidencial")
-agrupar_partidos_uy(elec99)
+#elec99 <- nacional_uy(anio = 1999, tipo = "Presidencial")
+#agrupar_partidos_uy(elec99)
 }

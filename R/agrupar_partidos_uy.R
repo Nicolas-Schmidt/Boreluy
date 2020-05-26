@@ -5,8 +5,8 @@
 #' @param umbral Valor relativo al porcentaje bajo el cual se van a agrupar a los partidos como 'Otros Partidos'
 #' @return data.frame.
 #' @examples
-#' elec99 <- resultado_eleccion_uy(anio = 1999, tipo = "Presidencial")
-#' agrupar_partidos_uy(elec99)
+#' #elec99 <- nacional_uy(anio = 1999, tipo = "Presidencial")
+#' #agrupar_partidos_uy(elec99)
 #' @export
 
 agrupar_partidos_uy <- function(datos, umbral = 2){

@@ -1,7 +1,8 @@
 
 #' @importFrom dplyr filter select group_by rename mutate if_else full_join left_join arrange summarise right_join ungroup distinct summarize
 #' @importFrom tidyr pivot_wider
-#' @importFrom tibble as_tibble tibble
+#' @importFrom tibble as_tibble tibble deframe
+#' @importFrom stringr str_to_title
 #' @importFrom stats na.omit
 #' @importFrom purrr map
 #' @importFrom magrittr %>%
@@ -9,28 +10,32 @@
 #' @importFrom ggparliament parliament_data
 #' @importFrom ggplot2 ggplot aes geom_tile scale_fill_manual labs theme element_text theme_minimal
 
-vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'anio_eleccion', 'partido',
-          'departamento', 'camara', 'bancas', 'Bancas', 'Senadores', 'Diputados',
-          'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'corte', 'Partido',
-          'seats', 'Eleccion', 'party', 'Departamento', 'votes_par', 'votes_nac',
-          'election', 'unit', 'Sigla', 'Var1', 'Var2', 'Freq')
+vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'partido', 'fecha', 'cant_votos', 'Cant_votos',
+          'departamento', 'camara', 'Senadores', 'Diputados', 'sum_votos_par', 'por_deptos', 'seats', 'Freq',
+          'por_nacional', 'sum_diputados', 'sum_senadores', 'Por_nacional', 'Sum_diputados', 'Sum_senadores',
+          'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'Por_deptos', 'bancas_diputados', 'bancas_senado',
+          'corte', 'Eleccion', 'Departamento', 'Partido', 'Sigla', 'Fecha', 'anio_eleccion', 'Var2', 'Var1',
+          'Sum_votos_par', 'election', 'unit'
+          )
 
 if(getRversion() >= "2.15.1"){
     utils::globalVariables(c('.', vars))
     utils::suppressForeignCheck(c('.', vars))
 }
 
-vbva <- function(vec){
-    ubic <- which(vec$Partido %in% c('Voto en Blanco', 'Voto Anulado'))
-    if(any(ubic)) vec$Sigla[ubic] <- c('VB', 'VA')
-    return(vec)
-}
 
-sigla <- function(dat, anio){
-    names(dat) <- tools::toTitleCase(names(dat))
-    cbind(Eleccion = anio, vbva(right_join(partidos_uy[, c(1, 2)], dat, by = 'Partido'))) %>% as_tibble()
-}
 
+
+sigla <- function(dat){
+
+    p <- partidos_uy
+    p[nrow(p) + 1, c(1:2)] <- c('Voto en Blanco', 'VB')
+    p[nrow(p) + 1, c(1:2)] <- c('Voto Anulado', 'VA')
+    u <- which(names(dat) == 'Partido')
+    left_join(dat, p[, 1:2], by = 'Partido') %>%
+        select(1:u, Sigla, (u+1):ncol(.))
+
+}
 
 
 ap <- function(datos, umbral = 2){
@@ -59,66 +64,66 @@ header <- function(base){
 }
 
 
-rpuy <- function(anio = integer(), por_departamento = FALSE){
-
-    elec <- elecciones_uy %>%
-        filter(eleccion %in% c('Legislativa', 'Presidencial'),
-               concurrente == 1,
-               anio_eleccion == anio) %>%
-        select(c('anio_eleccion',
-                 'eleccion',
-                 'partido',
-                 'fraccion',
-                 'departamento',
-                 'votos',
-                 'bancas_senado',
-                 'bancas_diputados',
-                 'total_bancas_diputados',
-                 'total_bancas_senado'))
-    elec2 <- rbind(
-        uno <- cbind(elec[, -c(7:10)], bancas = elec$bancas_diputados,
-                     camara = 'Diputados',
-                     integrantes = elec$total_bancas_diputados),
-        dos <- cbind(elec[, -c(7:10)], bancas = elec$bancas_senado,
-                     camara = 'Senadores',
-                     integrantes = elec$total_bancas_senado)
-    )
-    a <- elec2 %>%
-        group_by(partido, departamento, camara) %>%
-        summarise(Bancas = sum(bancas)) %>%
-        filter(Bancas != 0) %>%
-        pivot_wider(names_from = camara, values_from = Bancas) %>%
-        mutate(Senadores = if_else(is.na(Senadores), 0, Senadores)) %>%
-        ungroup() %>%
-        na.omit()
-
-    b <- a %>%
-        select(partido, Senadores) %>%
-        distinct()
-    b2 <- a %>%
-        group_by(partido) %>%
-        summarise(Diputados = sum(Diputados)) %>%
-        full_join(b, by = 'partido') %>%
-        arrange(-Diputados)
-
-
-    if(por_departamento){
-        a <- a[, c('partido', 'departamento', 'Diputados', 'Senadores')]
-        names(a) <- tools::toTitleCase(names(a))
-    }else{
-        a <- b2[,c('partido', 'Diputados', 'Senadores')]
-        names(a) <- tools::toTitleCase(names(a))
-        #b2
-    }
-
-    return(a)
-}
-
 
 init_summ <- function(){
     j <- elecciones_uy %>% select(anio_eleccion, eleccion) %>% distinct()
-    j2 <- table(j$anio_eleccion, j$eleccion) %>% as.data.frame()
-    j2
+    table(j$anio_eleccion, j$eleccion) %>% as.data.frame()
 
 }
+
+
+pre_out <- function(datos, eleccion, vbva.rm) {
+
+    d <- datos %>%  dplyr::filter(anio_eleccion == {{eleccion}})
+    if(vbva.rm){
+        ubic <- which(d$partido %in% c('Voto en Blanco', 'Voto Anulado'))
+        d <- d[-ubic, ]
+    }
+    d %>%
+        group_by(departamento, partido, fecha) %>%
+        summarise(
+            cant_votos = sum(votos, na.rm = TRUE),
+            Diputados = sum(bancas_diputados, na.rm = TRUE),
+            Senadores = sum(bancas_senado, na.rm = TRUE)/length(unique(departamento))
+        ) %>%
+        ungroup() %>%
+        group_by(departamento) %>%
+        mutate (por_deptos = round((cant_votos / sum(cant_votos, na.rm = TRUE)) * 100, 2)) %>%
+        ungroup() %>%
+        mutate(total = sum(cant_votos, na.rm = TRUE)) %>%
+        group_by(partido) %>%
+        mutate(
+            por_nacional = round((sum(cant_votos, na.rm = TRUE) / total) * 100, 2),
+            sum_diputados = sum(Diputados, na.rm = TRUE),
+            sum_senadores = sum(Senadores, na.rm = TRUE)/length(unique(departamento)),
+            sum_votos_par = sum(cant_votos, na.rm = TRUE),
+            fecha = as.Date(fecha)
+        ) %>%
+        ungroup() %>%
+        select(-c(total))
+}
+
+
+
+concurrente <- function(eleccion, tipo){
+
+    elecciones_uy %>%
+        filter(eleccion == {{tipo}}, anio_eleccion == {{eleccion}}) %>%
+        select(concurrente) %>%
+        unique() %>%
+        deframe()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 

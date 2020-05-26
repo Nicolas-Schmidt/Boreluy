@@ -4,7 +4,7 @@
 \alias{as_parliament}
 \title{as_parliament}
 \usage{
-as_parliament(datos, camara = 1, color = NULL, tipo = "semicircle", ...)
+as_parliament(datos, camara = 1, color, tipo = "semicircle", ...)
 }
 \arguments{
 \item{datos}{Datos de la clase \code{boreluy_parlamento}.}
@@ -22,11 +22,11 @@ indica 2 corresponde a la camara alta o Camara de Senadores.}
 data.frame.
 }
 \description{
-Convierte salida de la funcion \code{\link{resultado_eleccion_uy}} al formato necesario para
+Convierte salida de la funcion \code{\link{nacional_uy}} al formato necesario para
     poder usar el paquete \code{ggparliament}.
 }
 \examples{
-diputados <- resultado_eleccion_uy(anio = 1971, tipo = 'Presidencial', parlamento = TRUE)
+diputados <- nacional_uy(eleccion = 1971)
 as_parliament(diputados, camara = 1, color = c('#E81B23', '#3333FF', '#B4B4B4'))
 
 # ggplot2::ggplot(diputados, aes(x, y, colour = party_long)) +

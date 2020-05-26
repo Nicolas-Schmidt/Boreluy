@@ -35,6 +35,7 @@ Imports:
     ggparliament,
     crayon,
     hrbrthemes, 
+    stringr,
     ggplot2,
     Rdpack
 RoxygenNote: 7.1.0
