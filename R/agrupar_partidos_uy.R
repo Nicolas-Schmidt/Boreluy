@@ -5,13 +5,13 @@
 #' @param umbral Valor relativo al porcentaje bajo el cual se van a agrupar a los partidos como 'Otros Partidos'
 #' @return data.frame.
 #' @examples
-#' #elec99 <- nacional_uy(anio = 1999, tipo = "Presidencial")
-#' #agrupar_partidos_uy(elec99)
+#' elec71 <- nacional_uy(eleccion = 1971)
+#' agrupar_partidos_uy(elec71)
 #' @export
 
 agrupar_partidos_uy <- function(datos, umbral = 2){
 
-    if(!inherits(datos, "boreluy_elecciones")) {stop("Los datos deben ser una salida de la funcion `resultados_elecciones_uy`.", call. = FALSE)}
+    if(!inherits(datos, "boreluy_nacional")) stop("Los datos deben ser una salida de la funcion `nacional_uy`.", call. = FALSE)
     datos$corte <- ifelse(datos$Porcentaje < umbral, 'Otros Partidos', datos$Partido)
     datos$corte <- ifelse(datos$Partido %in% c('Voto Anulado', 'Voto en Blanco'), 'Voto Blanco/Anulado', datos$corte)
 
@@ -32,3 +32,7 @@ agrupar_partidos_uy <- function(datos, umbral = 2){
     datos1
 
 }
+
+
+
+
