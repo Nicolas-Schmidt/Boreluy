@@ -3,6 +3,7 @@
 export(agrupar_partidos_uy)
 export(as_esaps)
 export(as_parliament)
+export(departamental_uy)
 export(grafico_elecciones_uy)
 export(nacional_uy)
 export(resumen_elecciones_uy)
