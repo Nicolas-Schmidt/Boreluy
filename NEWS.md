@@ -18,3 +18,9 @@
 
 * Se agregó el argumento tabla a la función resumen_elecciones_uy
 * Se agregó la función grafico_elecciones_uy
+
+
+## Boreluy 0.1.0.907
+
+* Se cambia la funcion 'resultado_elecciones_uy' por 'nacional_uy' y 'departamental_uy'.La nuevas funciones requieren menos uso de argumentos y las salidas son mas completas.
+
