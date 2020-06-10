@@ -15,7 +15,7 @@ vars <- c('elecciones_uy', 'eleccion', 'concurrente', 'partido', 'fecha', 'cant_
           'por_nacional', 'sum_diputados', 'sum_senadores', 'Por_nacional', 'Sum_diputados', 'Sum_senadores',
           'votos', 'Votos', 'total', 'Porcentaje', 'partidos_uy', 'Por_deptos', 'bancas_diputados', 'bancas_senado',
           'corte', 'Eleccion', 'Departamento', 'Partido', 'Sigla', 'Fecha', 'anio_eleccion', 'Var2', 'Var1',
-          'Sum_votos_par', 'election', 'unit', 'sum_partidos'
+          'Sum_votos_par', 'election', 'unit', 'sum_partidos', 'votes', 'votes_nac'
           )
 
 if(getRversion() >= "2.15.1"){
