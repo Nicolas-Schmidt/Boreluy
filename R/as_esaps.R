@@ -31,24 +31,46 @@ as_esaps <- function(datos){
         party    = datos$Partido,
         votes    = datos$Porcentaje
     )
+    datos2 <- datos
+
     if('Diputados' %in% names(datos)){
         if('Departamento' %in% names(datos)){
-            datos2 <- datos %>% group_by(Fecha, Departamento) %>%
-                mutate(seats = Diputados / sum(Diputados)*100) %>%
-                ungroup() %>%
-                select(Fecha, Partido, seats, Departamento) %>%
-                rename(unit = Departamento)
+            datos2 <-
+                datos2 %>%
+                group_by(Fecha, Departamento) %>%
+                mutate(seats = Diputados / sum(Diputados, na.rm = TRUE) * 100) %>%
+                ungroup()
         } else {
-            datos2 <- datos %>% group_by(Fecha) %>%
-                mutate(seats = Diputados / sum(Diputados)*100) %>%
-                ungroup() %>%
-                select(Fecha, Partido, seats)
+            datos2 <-
+                datos2 %>%
+                group_by(Fecha) %>%
+                mutate(seats = Diputados / sum(Diputados, na.rm = TRUE) * 100) %>%
+                ungroup()
         }
-        datos2 <- datos2 %>% mutate(Fecha = substring(datos$Fecha, 1, 4))
-        names(datos2)[1:2] <- c('election', 'party')
-        salida <- full_join(salida, datos2, by = intersect(names(salida), names(datos2)))
     }
-     return(salida %>% arrange(election, unit))
+    if('Departamento' %in% names(datos)){
+        datos2 <-
+            datos2 %>%
+            mutate(total = sum(Votos, na.rm = TRUE)) %>%
+            group_by(Partido) %>%
+            mutate(votes_nac = (sum(Votos, na.rm = TRUE) / total * 100)) %>%
+            ungroup() %>%
+            rename(unit = Departamento) %>%
+            mutate(votes_nac = ifelse(votes_nac == 0, NA, votes_nac))
+    }
+    datos2 <-
+        datos2 %>% rename(
+            party = Partido,
+            election = Fecha,
+            votes = Porcentaje
+        ) %>%
+        mutate(election = substring(election, 1, 4))
+
+    vars <- c('election','unit', 'party', 'votes', 'votes_nac', 'seats')
+    datos2 <- datos2[, names(datos2) %in% vars]
+    datos2 <- full_join(salida, datos2, by = intersect(names(salida), names(datos2))) %>%
+        mutate(votes = ifelse(votes == 0, NA, votes))
+    return(datos2 %>% arrange(election, unit) %>% as.data.frame())
 }
 
 

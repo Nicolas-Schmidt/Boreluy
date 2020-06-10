@@ -24,3 +24,6 @@
 
 * Se cambia la funcion 'resultado_elecciones_uy' por 'nacional_uy' y 'departamental_uy'.La nuevas funciones requieren menos uso de argumentos y las salidas son mas completas.
 
+## Boreluy 0.1.0.908
+
+* error en as_esaps() que significó un cambio en psns() de esaps
