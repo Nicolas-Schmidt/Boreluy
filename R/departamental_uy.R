@@ -4,8 +4,8 @@
 #' @param eleccion Anio de eleccion.
 #' @return data.frame.
 #' @examples
-#' departamental_uy(eleccion = 1971)
-#' agrupar_partidos_uy(departamental_uy(1971))
+#' departamental_uy(eleccion = 1966)
+#' agrupar_partidos_uy(departamental_uy(1966))
 #' @export
 
 
