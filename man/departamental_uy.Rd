@@ -16,7 +16,3 @@ data.frame.
 Devuelve el resultado electoral por eleccion departamentall en cantdiad de votos
     y en porcentaje.
 }
-\examples{
-departamental_uy(eleccion = 1966)
-agrupar_partidos_uy(departamental_uy(1966))
-}
