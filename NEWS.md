@@ -1,6 +1,6 @@
 ## Boreluy 0.1.0.903
 
-* Se agregan elecciones a la base 'elecciones_uy' - 2014: Balotaje
+* Se agregan elecciones a la base 'elecciones_uy' - 2014: Balotaje 
 
 ## Boreluy 0.1.0.904
 
