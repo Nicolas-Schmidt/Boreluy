@@ -93,7 +93,7 @@ pre_out <- function(datos, eleccion, vbva.rm) {
         mutate(total = sum(cant_votos, na.rm = TRUE)) %>%
         group_by(partido) %>%
         mutate(
-            por_nacional = round((sum(cant_votos, na.rm = TRUE) / total) * 100, 2),
+            por_nacional =  (sum(cant_votos, na.rm = TRUE) / total) * 100,
             sum_diputados = sum(Diputados, na.rm = TRUE),
             sum_senadores = sum(Senadores, na.rm = TRUE)/length(unique(departamento)),
             sum_votos_par = sum(cant_votos, na.rm = TRUE),

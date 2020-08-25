@@ -22,6 +22,7 @@ nacional_uy <- function(eleccion, tipo = 'Presidencial', por_departamento = FALS
     # test eleccion ------------------------------------------------------------
     anio <- elecciones_uy %>%
         filter(eleccion == {{tipo}}) %>% select(anio_eleccion) %>% distinct() %>% deframe()
+
     if(!eleccion %in% anio) stop(paste0("En ese anio no hubo eleccion ", tipo), call. = FALSE)
     # pre out ------------------------------------------------------------------
     datos <- elecciones_uy %>%
