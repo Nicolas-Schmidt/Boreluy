@@ -63,7 +63,7 @@ source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 
 | Nombre|Descripción |
 | ----------------- | -------------------------------------------------------------- | 
-|`elecciones_uy`|Contiene los resultrados elctorales desagregado a nivel de departamento y en los casos que existe a nivel de sublema de las elecciones nacionales y departamentales desde 1918 hasta 2019. Para la desagregacion a nivel de fracción se incorporó un a variable que tiene el cadidat a la presidencia. Este criterio cambia a partir de la aparicion de las elecciones internas obligatorias. POr esta razón, está el sublema y y candidato a la presidencia.|
+|`elecciones_uy`|Contiene los resultrados elctorales desagregado a nivel de departamento y en los casos que existe a nivel de sublema de las elecciones nacionales y departamentales desde 1918 hasta 2019. Para la desagregacion a nivel de fracción se incorporó un a variable que tiene el cadidat a la presidencia. Este criterio cambia a partir de la aparicion de las elecciones internas obligatorias. Por esta razón, está el sublema y y candidato a la presidencia.|
 |`partidos_uy`|La undiad de esta base de datos son los partidos polítcos que alguna vez participaron en alguna elección en el período 1918 - 2019.|
 
 ### Ejemplos
