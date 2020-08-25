@@ -7,7 +7,7 @@
 as_parliament(datos, camara = 1, color, tipo = "semicircle", ...)
 }
 \arguments{
-\item{datos}{Datos de la clase \code{boreluy_parlamento}.}
+\item{datos}{Datos de la clase \code{boreluy}.}
 
 \item{camara}{Por defecto es 1 que correponde a la camara baja o Camara de Represnetantes, si se
 indica 2 corresponde a la camara alta o Camara de Senadores.}

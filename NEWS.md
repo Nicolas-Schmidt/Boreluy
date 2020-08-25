@@ -27,3 +27,10 @@
 ## Boreluy 0.1.0.908
 
 * error en as_esaps() que significó un cambio en psns() de esaps
+
+## Boreluy 0.1.1
+
+* pre lanzamiento en publico con con ajustes globales. Se arregla inconsistencia entre entre clase boreluy_nacional y boreluy_elecciones, se unifica en 'boreluy'.
+
+
+

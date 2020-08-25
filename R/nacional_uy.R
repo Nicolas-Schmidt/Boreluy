@@ -58,7 +58,7 @@ nacional_uy <- function(eleccion, tipo = 'Presidencial', por_departamento = FALS
         out <- out %>% select(-c(Diputados, Senadores))
     }
     end <- sigla(out)
-    class(end) <- c(class(end), "boreluy_nacional")
+    class(end) <- c(class(end), "boreluy")
     return(end)
 }
 

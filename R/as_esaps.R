@@ -1,7 +1,7 @@
 #' @title as_esaps
 #' @description Convierte salida de la funcion \code{nacional_uy} al formato necesario para
 #'     poder usar el paquete \code{esaps}.
-#' @param datos Datos de la clase \code{boreluy_elecciones}.
+#' @param datos Datos de la clase \code{boreluy}.
 #' @return data.frame.
 #' @examples
 #' elec <- nacional_uy(eleccion = 1971)
@@ -23,7 +23,7 @@
 
 as_esaps <- function(datos){
 
-    if(!inherits(datos, "boreluy_nacional")) stop("Los datos deben ser una salida de la funcion `nacional_uy`.", call. = FALSE)
+    if(!inherits(datos, "boreluy")) stop("Los datos deben ser una salida de la funcion `nacional_uy`.", call. = FALSE)
     if(any(names(datos) == 'Departamento')) unidad <- datos$Departamento else unidad <- 'Uruguay'
     salida <- tibble::tibble(
         election = substring(datos$Fecha, 1, 4),

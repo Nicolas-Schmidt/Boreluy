@@ -2,7 +2,7 @@
 #'
 #' @description Convierte salida de la funcion \code{\link{nacional_uy}} al formato necesario para
 #'     poder usar el paquete \code{ggparliament}.
-#' @param datos Datos de la clase \code{boreluy_parlamento}.
+#' @param datos Datos de la clase \code{boreluy}.
 #' @param camara Por defecto es 1 que correponde a la camara baja o Camara de Represnetantes, si se
 #'     indica 2 corresponde a la camara alta o Camara de Senadores.
 #' @param color Paleta de colores con los que se van a identificar a los partidos politicos en el grafico.
@@ -31,7 +31,7 @@ as_parliament <- function(datos,
 
 
     m <- "Los datos deben ser una salida de la funcion `nacional_uy(., por departamento = FALSE)`."
-    if(!inherits(datos, "boreluy_nacional")) stop(m, call. = FALSE)
+    if(!inherits(datos, "boreluy")) stop(m, call. = FALSE)
     if('Departamento' %in% names(datos)) stop(m, call. = FALSE)
 
     datos[datos == 0] <- NA

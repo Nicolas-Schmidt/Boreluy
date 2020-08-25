@@ -7,7 +7,7 @@
 as_esaps(datos)
 }
 \arguments{
-\item{datos}{Datos de la clase \code{boreluy_elecciones}.}
+\item{datos}{Datos de la clase \code{boreluy}.}
 }
 \value{
 data.frame.
