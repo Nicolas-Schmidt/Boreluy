@@ -215,7 +215,9 @@ datos <-
     purrr::map_df(c(1984, 1989, 1994, 1999, 2004), nacional_uy) %>% 
     as_esaps()
 
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Volatilidad electoral
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 esaps::evolat(datos, "Pedersen")
 #>   election    unit eVolat
@@ -224,8 +226,17 @@ esaps::evolat(datos, "Pedersen")
 #> 3     1999 Uruguay  11.10
 #> 4     2004 Uruguay  26.18
 
+esaps::evolat(datos, "Powell and Tucker")
+#>   election    unit volat_A volat_B
+#> 1     1989 Uruguay    5.78    8.36
+#> 2     1994 Uruguay    0.19   11.40
+#> 3     1999 Uruguay    0.27   10.83
+#> 4     2004 Uruguay    3.37   22.81
 
+
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Número efectivo de partidos
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 esaps::enp(datos[, -5])
 #>   election    unit  enp
@@ -235,7 +246,7 @@ esaps::enp(datos[, -5])
 #> 4     1999 Uruguay 3.29
 #> 5     2004 Uruguay 2.61
 
-esaps::enp(na.omit(datos), enp_seats = TRUE)
+esaps::enp(na.omit(datos), enp_seats = TRUE) 
 #>   election    unit  enp enp_c
 #> 1     1984 Uruguay 3.09  1.81
 ```

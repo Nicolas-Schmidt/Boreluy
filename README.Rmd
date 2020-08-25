@@ -175,16 +175,22 @@ datos <-
     purrr::map_df(c(1984, 1989, 1994, 1999, 2004), nacional_uy) %>% 
     as_esaps()
 
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Volatilidad electoral
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 esaps::evolat(datos, "Pedersen")
 
+esaps::evolat(datos, "Powell and Tucker")
 
+
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ## Número efectivo de partidos
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 esaps::enp(datos[, -5])
 
-esaps::enp(na.omit(datos), enp_seats = TRUE)
+esaps::enp(na.omit(datos), enp_seats = TRUE) 
 
 
 ```
