@@ -55,7 +55,7 @@
 #' \insertRef{marius1999}{Boreluy}
 #'
 #' \insertRef{marius2004}{Boreluy}
-'elecciones_uy'
+NULL
 
 
 
