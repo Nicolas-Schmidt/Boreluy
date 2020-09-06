@@ -262,6 +262,27 @@ esaps::enp(na.omit(datos), enp_seats = TRUE)
 
 <img src='man/figures/mapa_departamentos.png'/>
 
+#### Citar
+
+Para citar el paquete `Boreluy` en publicaciones use:
+
+``` r
+citation(package = 'Boreluy')
+#> 
+#> To cite Boreluy in publications use:
+#> 
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {Boreluy: Datos electorales de Uruguay 1910-2020},
+#>     author = {Nicolas Schmidt and Antonio Cardarello and Diego Lujan},
+#>     year = {2020},
+#>     note = {R package version 0.1.1},
+#>     url = {https://nicolas-schmidt.github.io/Boreluy/},
+#>   }
+```
+
 -----
 
 ##### Mantenedor

@@ -1,0 +1,14 @@
+citHeader("To cite Boreluy in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "Boreluy: Datos electorales de Uruguay 1910-2020",
+  author   = "Nicolas Schmidt, Antonio Cardarello, Diego Lujan",
+  year     = 2020,
+  note     = "R package version 0.1.1",
+  url      = "https://nicolas-schmidt.github.io/Boreluy/",
+  textVersion = paste(
+
+  )
+)
+

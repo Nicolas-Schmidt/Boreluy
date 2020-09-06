@@ -236,6 +236,13 @@ manual()
 
 
 
+#### Citar
+
+Para citar el paquete `Boreluy` en publicaciones use:
+
+```{r}
+citation(package = 'Boreluy')
+```
 
 
 
