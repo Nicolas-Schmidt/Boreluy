@@ -126,7 +126,7 @@ ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
     geom_bar(stat = "identity", position = "stack", fill = "#00A08A", color = "black") +
     ylim(0,100) +
     coord_flip() +
-    geom_text(aes(label = paste0(Porcentaje, "%")), hjust = -0.5, color = "gray9", size = 3) +
+    geom_text(aes(label = paste0(round(Porcentaje, 2), "%")), hjust = -0.5, color = "gray9", size = 4) +
     labs(x = "", y = "",
          title = "Resultado de elección nacional de 1971",
          subtitle = "28 de noviembre de 1971") +
@@ -142,7 +142,7 @@ ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
     geom_bar(stat="identity", position = "stack", fill = "#00A08A", color = "black") +
     ylim(0,100) +
     coord_flip() +
-    geom_text(aes(label = paste0(Porcentaje, "%")), hjust = -0.5, color = "gray9", size = 2) +
+    geom_text(aes(label = paste0(round(Porcentaje, 2), "%")), hjust = -0.5, color = "gray9", size = 3) +
     labs(x = "", y = "",
          title = "Resultado de elección nacional de 1971",
          subtitle = "28 de noviembre de 1971") +
