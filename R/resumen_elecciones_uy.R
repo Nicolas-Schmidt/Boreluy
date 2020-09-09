@@ -34,7 +34,7 @@ grafico_elecciones_uy <- function(){
                Freq = ifelse(Freq == 1, "Si", "No")) %>%
         ggplot(aes(factor(Var1), Var2, fill= factor(Freq))) +
         geom_tile(color = "white") +
-        scale_fill_manual(values = c('#6CD2F7','#FEF732')) +
+        scale_fill_manual(values = c('#FEF732','#6CD2F7')) +
         theme_minimal() +
         #hrbrthemes::theme_ipsum_tw() +
         theme(axis.text.x = element_text(angle = 90), legend.position = "top") +

@@ -65,11 +65,18 @@ header <- function(base){
 
 
 
-init_summ <- function(){
-    j <- elecciones_uy %>% select(anio_eleccion, eleccion) %>% distinct()
-    table(j$anio_eleccion, j$eleccion) %>% as.data.frame()
+#init_summ <- function(){
+#    j <- elecciones_uy %>% select(anio_eleccion, eleccion) %>% distinct()
+#    table(j$anio_eleccion, j$eleccion) %>% as.data.frame()
+#}
 
+init_summ <- function(){
+    j <- elecciones_uy %>% select(anio_eleccion, eleccion, concurrente) %>% distinct()
+    j <- rbind(j[, -3], data.frame(anio_eleccion = j[which(j$concurrente == 1), "anio_eleccion"], eleccion = "Legislativa"))
+    table(j$anio_eleccion, j$eleccion) %>% as.data.frame()
 }
+
+
 
 
 pre_out <- function(datos, eleccion, vbva.rm) {
