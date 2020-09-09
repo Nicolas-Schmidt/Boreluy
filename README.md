@@ -12,7 +12,7 @@ status](https://github.com/Nicolas-Schmidt/Boreluy/workflows/R-CMD-check/badge.s
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![](https://img.shields.io/badge/devel%20version-0.1.1-blue.svg)](https://github.com/Nicolas-Schmidt/Boreluy)
+[![](https://img.shields.io/badge/devel%20version-0.1.2-blue.svg)](https://github.com/Nicolas-Schmidt/Boreluy)
 [![DOI](https://zenodo.org/badge/239314085.svg)](https://zenodo.org/badge/latestdoi/239314085)
 
 <!-- badges: end -->
@@ -84,11 +84,11 @@ resumen_elecciones_uy(tabla = FALSE)
 #> 
 #> --- Cantidad de elecciones ------------------------------------
 #> 
-#> -->  Presidencial                       : 20  (34%) 
-#> -->  Balotaje                           : 4    (7%) 
-#> -->  Departamental                      : 20  (34%) 
-#> -->  Legislativa                        : 10  (17%) 
-#> -->  Consejo Nacional de Administracion : 4    (7%) 
+#> -->  Presidencial                       : 20  (26%) 
+#> -->  Balotaje                           : 4    (5%) 
+#> -->  Departamental                      : 20  (26%) 
+#> -->  Legislativa                        : 28  (37%) 
+#> -->  Consejo Nacional de Administracion : 4    (5%) 
 #> 
 #> ---------------------------------------------------------------
 

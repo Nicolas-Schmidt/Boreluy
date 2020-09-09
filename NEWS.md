@@ -32,5 +32,6 @@
 
 * pre lanzamiento en publico con con ajustes globales. Se arregla inconsistencia entre entre clase boreluy_nacional y boreluy_elecciones, se unifica en 'boreluy'.
 
+## Boreluy 0.1.2
 
-
+Se ajusta visualización para elecciones presidenciales concurrentes con legislativas.
