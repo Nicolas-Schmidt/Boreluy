@@ -70,6 +70,7 @@ as_esaps <- function(datos){
     datos2 <- datos2[, names(datos2) %in% vars]
     datos2 <- full_join(salida, datos2, by = intersect(names(salida), names(datos2))) %>%
         mutate(votes = ifelse(votes == 0, NA, votes))
+    if(1962 %in% unique(datos2$election)){ datos2 <- e1962(datos2) }
     return(datos2 %>% arrange(election, unit) %>% as.data.frame())
 }
 

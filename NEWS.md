@@ -35,3 +35,8 @@
 ## Boreluy 0.1.2
 
 Se ajusta visualización para elecciones presidenciales concurrentes con legislativas.
+
+## Boreluy 0.1.3
+
+Se ajusta por rutina nombre de partidos de eleccion de 1962 en funcion 'as_esaps()'
+
