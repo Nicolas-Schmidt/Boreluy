@@ -208,7 +208,7 @@ diputados
 senadores
 ```
 
-<img src='man/figures/parla.png' height="300" />
+<img src='man/figures/parla.png' width="900" height="300" />
 
 #### Aplicaciones alternativas
 
@@ -255,8 +255,8 @@ esaps::enp(na.omit(datos), enp_seats = TRUE)
 
 ###### Volatilidad electoral, Número efectivo de partidos e Índice de nacionalización partidario
 
-<img src='man/figures/indicadores.gif' width="430" height="352" /> </a>
-<img src='man/figures/nacionaliza.gif'  width="430" height="352" /></a>
+<img src='man/figures/indicadores.gif' width="350" height="320" /> </a>
+<img src='man/figures/nacionaliza.gif'  width="350" height="320" /></a>
 
 ###### Elecciones departamentales
 
