@@ -123,11 +123,13 @@ concurrente <- function(eleccion, tipo){
 
 
 e1962 <- function(x){
+
     x[x$election == 1962 & x$party == "Partido Democrata Cristiano"   ,"party"] <- "Union Civica"
     x[x$election == 1962 & x$party == "Frente Izquierda de Liberacion","party"] <- "Partido Comunista del Uruguay"
     x[x$election == 1962 & x$party == "Union Popular"                 ,"party"] <- "Partido Socialista"
     return(x)
-}
+
+    }
 
 
 
