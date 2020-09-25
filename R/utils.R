@@ -129,7 +129,7 @@ e1962 <- function(x){
     x[x$election == 1962 & x$party == "Union Popular"                 ,"party"] <- "Partido Socialista"
     return(x)
 
-    }
+}
 
 
 
