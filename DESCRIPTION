@@ -1,14 +1,14 @@
 Package: Boreluy
 Type: Package
 Title: Datos electorales de Uruguay 1910-2020
-Version: 0.1.3
+Version: 0.1.4
 Author: Nicolas Schmidt [aut, cre], Antonio Cardarello [aut], Diego Lujan [aut]
 Authors@R: c(person(given = "Nicolas", 
                     family = "Schmidt", 
                     role = c("aut", "cre"), 
                     email = "nschmidt@cienciassociales.edu.uy",
                     comment = c(ORCID = "0000-0001-5083-5792")),
-             person(given = "Antonio",
+             person(given = "Ant.onio",
                     family = "Cardarello",
                     role = c("aut")),
              person(given = "Diego",

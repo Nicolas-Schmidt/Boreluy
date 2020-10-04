@@ -14,24 +14,20 @@ agrupar_partidos_uy <- function(datos, umbral = 2){
     datos$corte <- ifelse(datos$Porcentaje < umbral, 'Otros Partidos', datos$Partido)
     datos$corte <- ifelse(datos$Partido %in% c('Voto Anulado', 'Voto en Blanco'), 'Voto Blanco/Anulado', datos$corte)
 
-    if(inherits(datos, "boreluy_departamental")) {
+    if(attributes(datos)$DPU == "boreluy_departamental") { ### check
         datos1 <- datos %>% group_by(corte, Eleccion, Departamento)
-        datos1 <-  ap(datos1, umbral = umbral) %>%
+        datos1 <-  ap(datos1, umbral = umbral, departamental = TRUE) %>%
             select(Eleccion, Departamento, Partido, Sigla, Votos, Porcentaje) %>%
             arrange(Eleccion, Departamento,  -Votos) %>% ungroup()
     } else {
         datos1 <- datos %>% group_by(corte, Eleccion)
-        datos1 <-  ap(datos1, umbral = umbral) %>%
-            select(Eleccion, Partido, Sigla, Votos, Porcentaje)%>%
+        datos1 <-  ap(datos1, umbral = umbral, departamental = FALSE) %>%
+            select(Eleccion, Partido, Sigla, Votos, Porcentaje, Diputados, Senadores)%>%
             arrange(Eleccion,  -Votos) %>% ungroup()
     }
 
     datos1$Sigla <- ifelse(datos1$Partido == 'Voto Blanco/Anulado', 'VB/VA',
                            ifelse(datos1$Partido == 'Otros Partidos', 'OtrosP.', datos1$Sigla))
-    datos1
+    bind_cols(Fecha = unique(datos$Fecha), datos1)
 
 }
-
-
-
-

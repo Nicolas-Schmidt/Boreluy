@@ -19,11 +19,7 @@
 
 nacional_uy <- function(eleccion, tipo = 'Presidencial', por_departamento = FALSE, vbva.rm = FALSE){
 
-    # test eleccion ------------------------------------------------------------
-    anio <- elecciones_uy %>%
-        filter(eleccion == {{tipo}}) %>% select(anio_eleccion) %>% distinct() %>% deframe()
-
-    if(!eleccion %in% anio) stop(paste0("En ese anio no hubo eleccion ", tipo), call. = FALSE)
+    if(!(eleccion %in% elecciones(tipo = tipo))) stop(paste0("En ese anio no hubo eleccion ", tipo, "."), call. = FALSE)
     # pre out ------------------------------------------------------------------
     datos <- elecciones_uy %>%
         filter(eleccion == {{tipo}}) %>%
@@ -57,8 +53,8 @@ nacional_uy <- function(eleccion, tipo = 'Presidencial', por_departamento = FALS
     if(concurrente(eleccion = {{eleccion}}, tipo = {{tipo}}) != 1){
         out <- out %>% select(-c(Diputados, Senadores))
     }
-    end <- sigla(out)
-    class(end) <- c(class(end), "boreluy")
+    end <- out %>% sigla() #%>% zero()
+    attr(end, "DPU") <- "boreluy"
     return(end)
 }
 

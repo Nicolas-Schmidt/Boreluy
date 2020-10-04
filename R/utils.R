@@ -1,5 +1,5 @@
 
-#' @importFrom dplyr filter select group_by rename mutate if_else full_join left_join arrange summarise right_join ungroup distinct summarize
+#' @importFrom dplyr filter select group_by rename mutate if_else full_join left_join arrange summarise right_join ungroup distinct summarize bind_cols
 #' @importFrom tidyr pivot_wider
 #' @importFrom tibble as_tibble tibble deframe
 #' @importFrom stringr str_to_title
@@ -37,12 +37,24 @@ sigla <- function(dat){
 
 }
 
+ap <- function(datos, umbral = 2, departamental){
 
-ap <- function(datos, umbral = 2){
-    datos1 <- datos %>%
-        summarise(Votos = sum(Votos), Porcentaje = sum(Porcentaje)) %>%
-        rename(Partido = corte) %>%
-        left_join(., partidos_uy[,c("Partido","Sigla")], by = 'Partido')
+    if(departamental){
+        datos1 <- datos %>%
+            summarise(Votos      = sum(Votos),
+                      Porcentaje = sum(Porcentaje)) %>%
+            rename(Partido = corte) %>%
+            left_join(., partidos_uy[,c("Partido","Sigla")], by = 'Partido')
+    } else {
+
+        datos1 <- datos %>%
+            summarise(Votos      = sum(Votos),
+                      Porcentaje = sum(Porcentaje),
+                      Diputados  = sum(Diputados),
+                      Senadores  = sum(Senadores)) %>%
+            rename(Partido = corte) %>%
+            left_join(., partidos_uy[,c("Partido","Sigla")], by = 'Partido')
+    }
     datos1
 }
 
@@ -130,6 +142,19 @@ e1962 <- function(x){
     return(x)
 
 }
+
+zero <- function(.X){.X[.X$Votos != 0,]}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

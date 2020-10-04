@@ -23,7 +23,8 @@
 
 as_esaps <- function(datos){
 
-    if(!inherits(datos, "boreluy")) stop("Los datos deben ser una salida de la funcion `nacional_uy`.", call. = FALSE)
+    #if(!inherits(datos, "boreluy")) stop("Los datos deben ser una salida de la funcion `nacional_uy`.", call. = FALSE)
+    #if(!attributes(datos)$DPU == "boreluy") stop("Los datos deben ser una salida de la funcion `nacional_uy`.", call. = FALSE)
     if(any(names(datos) == 'Departamento')) unidad <- datos$Departamento else unidad <- 'Uruguay'
     salida <- tibble::tibble(
         election = substring(datos$Fecha, 1, 4),

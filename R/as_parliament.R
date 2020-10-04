@@ -31,7 +31,7 @@ as_parliament <- function(datos,
 
 
     m <- "Los datos deben ser una salida de la funcion `nacional_uy(., por departamento = FALSE)`."
-    if(!inherits(datos, "boreluy")) stop(m, call. = FALSE)
+    if(!attributes(datos)$DPU == "boreluy") stop(m, call. = FALSE)
     if('Departamento' %in% names(datos)) stop(m, call. = FALSE)
 
     datos[datos == 0] <- NA

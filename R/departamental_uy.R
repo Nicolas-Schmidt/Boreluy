@@ -11,6 +11,9 @@
 
 departamental_uy <- function(eleccion){
 
+
+    if(!(eleccion %in% elecciones(tipo = "Departamental"))) stop("En ese anio no hubo eleccion Departamental.", call. = FALSE)
+
     dep <- elecciones_uy %>%
         filter(eleccion == 'Departamental', anio_eleccion == {{eleccion}}) %>%
         group_by(departamento, partido, fecha) %>%
@@ -26,7 +29,7 @@ departamental_uy <- function(eleccion){
         rename(Votos = sum_partidos) %>%
         select(fecha, Eleccion, departamento, partido, Votos, Porcentaje)
     names(dep) <- str_to_title(names(dep))
-    class(dep) <- c(class(dep), "boreluy_departamental")
-    sigla(dep)
+    attr(dep, "DPU") <- "boreluy_departamental"
+    dep %>% sigla() %>% zero()
 
 }

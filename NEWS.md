@@ -1,4 +1,12 @@
 
+## Boreluy 0.1.4
+
+* La salida de `agrupar_partidos_uy()` ahora tiene las mismas variables que la salida de `nacional_uy()` y que `departamental_uy()`.
+* Se arreglaron los conflictos de clase de boreluy con "tbl_df" y "tbl".
+* as_esaps ahora funciona con `departamental_uy()`
+* `departamental_uy()` ahora reporta si en el anio solicitado hay eleccion departamental.
+* se agrega la funcion `elecciones()`
+
 ## Boreluy 0.1.3
 
 Se ajusta por rutina nombre de partidos de eleccion de 1962 en funcion `as_esaps()`
