@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Resultado de elecciones departamentales de Uruguay — departamental_uy • Boreluy</title>
+<title>elecciones — elecciones • Boreluy</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Resultado de elecciones departamentales de Uruguay — departamental_uy" />
-<meta property="og:description" content="Devuelve el resultado electoral por eleccion departamentall en cantdiad de votos
-    y en porcentaje." />
+<meta property="og:title" content="elecciones — elecciones" />
+<meta property="og:description" content="Permite checar las elecciones disponibles en la base de datos elecciones_uy." />
 
 
 
@@ -112,31 +111,30 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Resultado de elecciones departamentales de Uruguay</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Nicolas-Schmidt/Boreluy/blob/master/R/departamental_uy.R'><code>R/departamental_uy.R</code></a></small>
-    <div class="hidden name"><code>departamental_uy.Rd</code></div>
+    <h1>elecciones</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Nicolas-Schmidt/Boreluy/blob/master/R/elecciones.R'><code>R/elecciones.R</code></a></small>
+    <div class="hidden name"><code>elecciones.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Devuelve el resultado electoral por eleccion departamentall en cantdiad de votos
-    y en porcentaje.</p>
+    <p>Permite checar las elecciones disponibles en la base de datos <code>elecciones_uy</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>departamental_uy</span>(<span class='no'>eleccion</span>)</pre>
+    <pre class="usage"><span class='fu'>elecciones</span>(<span class='kw'>tipo</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>character</a></span>())</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>eleccion</th>
-      <td><p>Anio de eleccion.</p></td>
+      <th>tipo</th>
+      <td><p>tip de eleccion</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data.frame.</p>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>elecciones</span>(<span class='kw'>tipo</span> <span class='kw'>=</span> <span class='st'>"Presidencial"</span>)</div><div class='output co'>#&gt;  [1] 1922 1926 1930 1938 1942 1946 1950 1954 1958 1962 1966 1971 1984 1989 1994
+#&gt; [16] 1999 2004 2014 2019 2009</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
