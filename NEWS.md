@@ -6,6 +6,7 @@
 * as_esaps ahora funciona con `departamental_uy()`
 * `departamental_uy()` ahora reporta si en el anio solicitado hay eleccion departamental.
 * se agrega la funcion `elecciones()`
+* se agrega argumento departamento a la funcion `departamental_uy()` para obtener resultados parciales territorialmente
 
 ## Boreluy 0.1.3
 

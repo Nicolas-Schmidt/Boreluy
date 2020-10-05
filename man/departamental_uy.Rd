@@ -4,10 +4,13 @@
 \alias{departamental_uy}
 \title{Resultado de elecciones departamentales de Uruguay}
 \usage{
-departamental_uy(eleccion)
+departamental_uy(eleccion, departamento = departamentos)
 }
 \arguments{
 \item{eleccion}{Anio de eleccion.}
+
+\item{departamento}{character vector con nombre de los departamentos seleccionados.
+Por defecto estan los 19 departamentos de Uruguay}
 }
 \value{
 data.frame.
@@ -15,4 +18,9 @@ data.frame.
 \description{
 Devuelve el resultado electoral por eleccion departamentall en cantdiad de votos
     y en porcentaje.
+}
+\examples{
+departamental_uy(eleccion = 1966)
+agrupar_partidos_uy(departamental_uy(1966))
+departamental_uy(1966, departamento = c("Artigas", "Rivera", "Montevideo"))
 }

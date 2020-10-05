@@ -145,7 +145,31 @@ e1962 <- function(x){
 
 zero <- function(.X){.X[.X$Votos != 0,]}
 
+#' @title departamentos
+#' @description contiene los nombres de los 19 departamentos de Uruguay
+#' @export
 
+departamentos <- c(
+    "Artigas",
+    "Canelones",
+    "Cerro Largo",
+    "Colonia",
+    "Durazno",
+    "Flores",
+    "Florida",
+    "Lavalleja",
+    "Maldonado",
+    "Montevideo",
+    "Paysandu",
+    "Rio Negro",
+    "Rivera",
+    "Rocha",
+    "Salto",
+    "San Jose",
+    "Soriano",
+    "Tacuarembo",
+    "Treinta y Tres"
+)
 
 
 
