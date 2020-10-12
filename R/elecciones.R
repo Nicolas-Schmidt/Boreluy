@@ -6,5 +6,5 @@
 #' @export
 
 elecciones <- function(tipo = character()){
-    elecciones_uy %>% filter(eleccion == {{tipo}}) %>% select(anio_eleccion) %>% distinct() %>% deframe()
+    elecciones_uy %>% filter(eleccion == {{tipo}}) %>% select(anio_eleccion) %>% distinct() %>% deframe() %>% sort()
 }
