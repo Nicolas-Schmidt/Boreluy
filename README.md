@@ -7,6 +7,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/Boreluy)](https://CRAN.R-project.org/package=Boreluy)
 [![R build
 status](https://github.com/Nicolas-Schmidt/Boreluy/workflows/R-CMD-check/badge.svg)](https://github.com/Nicolas-Schmidt/Boreluy/actions)
 [![Project Status: Active – The project has reached a stable, usable
