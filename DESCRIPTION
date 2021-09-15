@@ -38,6 +38,5 @@ Imports:
     stringr,
     ggplot2,
     Rdpack
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 RdMacros: Rdpack
-

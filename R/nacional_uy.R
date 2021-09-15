@@ -3,7 +3,7 @@
 #'     y en porcentaje. Las eleccciones nacionales son: Presidencial, Balotaje, Legislativa y del
 #'     Consejo Nacional de Administracion.
 #' @param eleccion Anio de eleccion.
-#' @param tipo Tipo de eleccion. POr defecto es 'Presidencial'
+#' @param tipo Tipo de eleccion. Por defecto es 'Presidencial'
 #' @param por_departamento Por defecto es \code{FALSE}. Si es \code{TRUE} devuelve el resultado por departamento.
 #' @param vbva.rm Eliminar del calculo a los votos en blanco y anulados. Esto puede ser util para elecciones como el 'Balotaje'.
 #' @return data.frame. Si la eleccion es concurrente (hay eleccion de cargos legislativos)

@@ -14,7 +14,7 @@ nacional_uy(
 \arguments{
 \item{eleccion}{Anio de eleccion.}
 
-\item{tipo}{Tipo de eleccion. POr defecto es 'Presidencial'}
+\item{tipo}{Tipo de eleccion. Por defecto es 'Presidencial'}
 
 \item{por_departamento}{Por defecto es \code{FALSE}. Si es \code{TRUE} devuelve el resultado por departamento.}
 
