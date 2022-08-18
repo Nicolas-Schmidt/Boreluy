@@ -47,7 +47,8 @@ El manual del paquete se puede encontrar [__aquí__](https://github.com/Nicolas-
 
 ``` r
 ## Versión en desarrollo
-source("https://install-github.me/Nicolas-Schmidt/Boreluy")
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("Nicolas-Schmidt/Boreluy")
 ```
 
 ### Contenido del paquete

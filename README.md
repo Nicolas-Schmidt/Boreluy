@@ -14,7 +14,7 @@ status](https://github.com/Nicolas-Schmidt/Boreluy/workflows/R-CMD-check/badge.s
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![](https://img.shields.io/badge/devel%20version-0.1.4-orange.svg)](https://github.com/Nicolas-Schmidt/Boreluy)
+[![](https://img.shields.io/badge/devel%20version-0.1.5-orange.svg)](https://github.com/Nicolas-Schmidt/Boreluy)
 [![DOI](https://zenodo.org/badge/239314085.svg)](https://zenodo.org/badge/latestdoi/239314085)
 
 <!-- badges: end -->
@@ -53,7 +53,8 @@ El manual del paquete se puede encontrar
 
 ``` r
 ## Versión en desarrollo
-source("https://install-github.me/Nicolas-Schmidt/Boreluy")
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("Nicolas-Schmidt/Boreluy")
 ```
 
 ### Contenido del paquete
@@ -61,17 +62,17 @@ source("https://install-github.me/Nicolas-Schmidt/Boreluy")
 #### Funciones
 
 | Función               | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `nacional_uy`         | Devuelve el resultado de una elección nacional en cantidad de votos y porcentaje. También se puede obtener el resultado discriminado por departamento (`por_departamento = TRUE`) y la cantidad de cargos al parlamento en caso de elecciones Legislativas o Presidenciales concurrentes con elecciones Legislativas. Si usa el argumento `vbva.rm = TRUE` se eliminan del calculo los votos en blanco y anulado (esto puede ser útil para elecciones como el Balotaje). |
 | `departamental_uy`    | Devuelve el resultado de una elección departamental en cantidad de votos y porcentaje.                                                                                                                                                                                                                                                                                                                                                                                   |
 | `agrupar_partidos_uy` | Permite obtener el resultado electoral agrupando los partdos que obtuvieron menos de determinado umbral de votos en porcentaje (el umbral es definido por el usuario en la función) y tambien agrupa por defecto a los votos en blanco y a los votos anulados.                                                                                                                                                                                                           |
 | `as_esaps`            | Convierte la salida de `nacional_uy()` al formatro de datos necesario para usar el paquete [`esaps`](https://nicolas-schmidt.github.io/esaps/index.html) que sirve para calcular indicadores relativos al sistema de partidos (volatilidad, número efectivo de partidos..) y sistema electoral (desproporcionalidad…).                                                                                                                                                   |
-| `as_parliament`       | Convierte la salida de `nacional_uy()` al formatro de datos necesario para usar el paquete [`ggparliament`](https://github.com/RobWHickman/ggparliament) que permite graficar la composición del parlamento en formatro parlamento (“horseshoe”, “semicircle”, “circle”, “classroom”, “opposing\_benches”).                                                                                                                                                              |
+| `as_parliament`       | Convierte la salida de `nacional_uy()` al formatro de datos necesario para usar el paquete [`ggparliament`](https://github.com/RobWHickman/ggparliament) que permite graficar la composición del parlamento en formatro parlamento (“horseshoe”, “semicircle”, “circle”, “classroom”, “opposing_benches”).                                                                                                                                                               |
 
 #### Conjuntos de datos
 
 | Nombre          | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `elecciones_uy` | Contiene los resultrados elctorales desagregado a nivel de departamento y en los casos que existe a nivel de sublema de las elecciones nacionales y departamentales desde 1918 hasta 2019. Para la desagregacion a nivel de fracción se incorporó un a variable que tiene el cadidat a la presidencia. Este criterio cambia a partir de la aparicion de las elecciones internas obligatorias. Por esta razón, está el sublema y y candidato a la presidencia. |
 | `partidos_uy`   | La undiad de esta base de datos son los partidos polítcos que alguna vez participaron en alguna elección en el período 1918 - 2019.                                                                                                                                                                                                                                                                                                                           |
 
@@ -88,9 +89,9 @@ resumen_elecciones_uy(tabla = FALSE)
 #> 
 #> -->  Presidencial                       : 20  (26%) 
 #> -->  Balotaje                           : 4    (5%) 
-#> -->  Departamental                      : 20  (26%) 
-#> -->  Legislativa                        : 28  (37%) 
-#> -->  Consejo Nacional de Administracion : 4    (5%) 
+#> -->  Departamental                      : 21  (27%) 
+#> -->  Legislativa                        : 28  (36%) 
+#> -->  Consejo Nacional de Administracion : 5    (6%) 
 #> 
 #> ---------------------------------------------------------------
 
@@ -102,7 +103,6 @@ grafico_elecciones_uy()
 ### Resultados electorales
 
 ``` r
-
 library(ggplot2)
 library(magrittr)
 
@@ -111,17 +111,17 @@ elec71 <- nacional_uy(eleccion = 1971)
 
 elec71
 #> # A tibble: 9 x 8
-#>   Fecha      Eleccion  Partido       Sigla  Votos Porcentaje Diputados Senadores
-#>   <date>     <chr>     <chr>         <chr>  <dbl>      <dbl>     <dbl>     <dbl>
-#> 1 1971-11-28 Presiden~ Partido Colo~ PC    681624   39.8            41        14
-#> 2 1971-11-28 Presiden~ Partido Naci~ PN    668822   39.0            40        12
-#> 3 1971-11-28 Presiden~ Frente Amplio FA    304275   17.8            18         5
-#> 4 1971-11-28 Presiden~ Voto Anulado  VA     42508    2.48            0         0
-#> 5 1971-11-28 Presiden~ Union Radica~ URC     8844    0.516           0         0
-#> 6 1971-11-28 Presiden~ Voto en Blan~ VB      6139    0.358           0         0
-#> 7 1971-11-28 Presiden~ Partido de J~ PJP      288    0.0168          0         0
-#> 8 1971-11-28 Presiden~ Movimiento J~ MJ       241    0.0141          0         0
-#> 9 1971-11-28 Presiden~ Partido Juve~ PJDO      25    0.00146         0         0
+#>   Fecha      Eleccion     Partido    Sigla  Votos Porcentaje Diputados Senadores
+#>   <date>     <chr>        <chr>      <chr>  <dbl>      <dbl>     <dbl>     <dbl>
+#> 1 1971-11-28 Presidencial Partido C~ PC    681624   39.8            41        14
+#> 2 1971-11-28 Presidencial Partido N~ PN    668822   39.0            40        12
+#> 3 1971-11-28 Presidencial Frente Am~ FA    304275   17.8            18         5
+#> 4 1971-11-28 Presidencial Voto Anul~ VA     42508    2.48            0         0
+#> 5 1971-11-28 Presidencial Union Rad~ URC     8844    0.516           0         0
+#> 6 1971-11-28 Presidencial Voto en B~ VB      6139    0.358           0         0
+#> 7 1971-11-28 Presidencial Partido d~ PJP      288    0.0168          0         0
+#> 8 1971-11-28 Presidencial Movimient~ MJ       241    0.0141          0         0
+#> 9 1971-11-28 Presidencial Partido J~ PJDO      25    0.00146         0         0
 
 
 ggplot(data = elec71 , aes(x = reorder(Partido, Porcentaje), y = Porcentaje)) +
@@ -160,20 +160,21 @@ ggplot(data = elec71 , aes(x = reorder(Sigla, Porcentaje), y = Porcentaje)) +
 
 ``` r
 library(ggparliament)
+#> Warning: package 'ggparliament' was built under R version 4.1.3
 
 nacional_uy(eleccion = 1971)
 #> # A tibble: 9 x 8
-#>   Fecha      Eleccion  Partido       Sigla  Votos Porcentaje Diputados Senadores
-#>   <date>     <chr>     <chr>         <chr>  <dbl>      <dbl>     <dbl>     <dbl>
-#> 1 1971-11-28 Presiden~ Partido Colo~ PC    681624   39.8            41        14
-#> 2 1971-11-28 Presiden~ Partido Naci~ PN    668822   39.0            40        12
-#> 3 1971-11-28 Presiden~ Frente Amplio FA    304275   17.8            18         5
-#> 4 1971-11-28 Presiden~ Voto Anulado  VA     42508    2.48            0         0
-#> 5 1971-11-28 Presiden~ Union Radica~ URC     8844    0.516           0         0
-#> 6 1971-11-28 Presiden~ Voto en Blan~ VB      6139    0.358           0         0
-#> 7 1971-11-28 Presiden~ Partido de J~ PJP      288    0.0168          0         0
-#> 8 1971-11-28 Presiden~ Movimiento J~ MJ       241    0.0141          0         0
-#> 9 1971-11-28 Presiden~ Partido Juve~ PJDO      25    0.00146         0         0
+#>   Fecha      Eleccion     Partido    Sigla  Votos Porcentaje Diputados Senadores
+#>   <date>     <chr>        <chr>      <chr>  <dbl>      <dbl>     <dbl>     <dbl>
+#> 1 1971-11-28 Presidencial Partido C~ PC    681624   39.8            41        14
+#> 2 1971-11-28 Presidencial Partido N~ PN    668822   39.0            40        12
+#> 3 1971-11-28 Presidencial Frente Am~ FA    304275   17.8            18         5
+#> 4 1971-11-28 Presidencial Voto Anul~ VA     42508    2.48            0         0
+#> 5 1971-11-28 Presidencial Union Rad~ URC     8844    0.516           0         0
+#> 6 1971-11-28 Presidencial Voto en B~ VB      6139    0.358           0         0
+#> 7 1971-11-28 Presidencial Partido d~ PJP      288    0.0168          0         0
+#> 8 1971-11-28 Presidencial Movimient~ MJ       241    0.0141          0         0
+#> 9 1971-11-28 Presidencial Partido J~ PJDO      25    0.00146         0         0
 
 
 # creamos una funcion para graficar parlamento
@@ -225,15 +226,15 @@ datos <-
 
 esaps::evolat(datos, "Pedersen")
 #>   election    unit eVolat
-#> 1     1989 Uruguay  14.14
-#> 2     1994 Uruguay  11.59
+#> 1     1989 Uruguay  14.12
+#> 2     1994 Uruguay  11.57
 #> 3     1999 Uruguay  11.10
 #> 4     2004 Uruguay  26.18
 
 esaps::evolat(datos, "Powell and Tucker")
 #>   election    unit volat_A volat_B
-#> 1     1989 Uruguay    5.78    8.36
-#> 2     1994 Uruguay    0.19   11.40
+#> 1     1989 Uruguay    5.78    8.34
+#> 2     1994 Uruguay    0.19   11.38
 #> 3     1999 Uruguay    0.27   10.83
 #> 4     2004 Uruguay    3.37   22.81
 
@@ -252,7 +253,11 @@ esaps::enp(datos[, -5])
 
 esaps::enp(na.omit(datos), enp_seats = TRUE) 
 #>   election    unit  enp enp_c
-#> 1     1984 Uruguay 3.09  1.81
+#> 1     1984 Uruguay 3.09  2.92
+#> 2     1989 Uruguay 3.66  3.33
+#> 3     1994 Uruguay 3.67  3.30
+#> 4     1999 Uruguay 3.29  3.07
+#> 5     2004 Uruguay 2.61  2.39
 ```
 
 ###### Volatilidad electoral, Número efectivo de partidos e Índice de nacionalización partidario
@@ -285,7 +290,7 @@ citation(package = 'Boreluy')
 #>   }
 ```
 
------
+------------------------------------------------------------------------
 
 ##### Mantenedor
 
@@ -297,7 +302,7 @@ Nadia Repetto (<narepetto@gmail.com>)
 
 #### Notas
 
------
+------------------------------------------------------------------------
 
 <sup><a id="fn.1" href="#fnr.1">1</a></sup> Ver Buquet, Daniel (2004)
 *Elecciones y sistema electoral*. En: El Uruguay del siglo XX. La
