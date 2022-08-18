@@ -34,5 +34,5 @@ Devuelve el resultado electoral por eleccion nacional en cantdiad de votos
 nacional_uy(eleccion = 1971)
 nacional_uy(eleccion = 1999, por_departamento = TRUE)
 nacional_uy(eleccion = 1999, tipo = 'Balotaje')
-nacional_uy(1925, tipo = 'Legislativa')
+#nacional_uy(1925, tipo = 'Legislativa')
 }
