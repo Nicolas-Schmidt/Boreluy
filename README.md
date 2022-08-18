@@ -53,6 +53,7 @@ El manual del paquete se puede encontrar
 
 ``` r
 ## Versión en desarrollo
+
 if (!require("remotes")) install.packages("remotes")
 remotes::install_github("Nicolas-Schmidt/Boreluy")
 ```

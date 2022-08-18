@@ -34,7 +34,8 @@ as_parliament <- function(datos,
     if(!attributes(datos)$DPU == "boreluy") stop(m, call. = FALSE)
     if('Departamento' %in% names(datos)) stop(m, call. = FALSE)
 
-    datos[datos == 0] <- NA
+    datos[is.na(datos)] <- 0
+    datos[datos == 0]   <- NA
     datos <- na.omit(datos)
     if(camara == 1) {
         camara <- 'Representantes'
