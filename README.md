@@ -14,7 +14,7 @@ status](https://github.com/Nicolas-Schmidt/Boreluy/workflows/R-CMD-check/badge.s
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![](https://img.shields.io/badge/devel%20version-0.1.5-orange.svg)](https://github.com/Nicolas-Schmidt/Boreluy)
+[![](https://img.shields.io/badge/devel%20version-0.1.6-orange.svg)](https://github.com/Nicolas-Schmidt/Boreluy)
 [![DOI](https://zenodo.org/badge/239314085.svg)](https://zenodo.org/badge/latestdoi/239314085)
 
 <!-- badges: end -->
@@ -30,8 +30,10 @@ años). Adicionalmente provee un conjunto de funciones que permiten
 obtener agregaciones de los datos (resultado por partido, por
 partido-departamento…).
 
-El manual del paquete se puede encontrar
-[**aquí**](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
+-   El manual del paquete se puede encontrar
+    [**aquí**](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/Manual_Boreluy.pdf).
+-   Presentación del paquete
+    [**aquí**](https://github.com/Nicolas-Schmidt/Boreluy/blob/master/man/figures/presentacion_Boreluy.pdf).
 
 > ¿Por qué Boreluy? Al belga J. Borely se le atribuye la creación del
 > doble voto simultaneo (DVS). En conjunto con la representación
@@ -288,7 +290,7 @@ Para citar el paquete `Boreluy` o el uso de los datos en publicaciones
 use:
 
 **Schmidt, Nicolás, Cardarello, Antonio, Luján, Diego (2020) Boreluy:
-Datos electorales de Uruguay 1910-2020, R package version 0.1.5,
+Datos electorales de Uruguay 1910-2020, R package version 0.1.6,
 <https://nicolas-schmidt.github.io/Boreluy/>.**
 
 ``` r
@@ -303,7 +305,7 @@ citation(package = 'Boreluy')
 #>     title = {Boreluy: Datos electorales de Uruguay 1910-2020},
 #>     author = {Nicolas Schmidt and Antonio Cardarello and Diego Lujan},
 #>     year = {2020},
-#>     note = {R package version 0.1.5},
+#>     note = {R package version 0.1.6},
 #>     url = {https://nicolas-schmidt.github.io/Boreluy/},
 #>   }
 ```

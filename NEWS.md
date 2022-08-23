@@ -1,6 +1,10 @@
+## Boreluy 0.1.6
+
+* Se agregan datos de voto en blanco y voto anulado para las elecciones departamentales desde 1985 a la actualidad.
+
 ## Boreluy 0.1.5
 
-Datos de composicion de parlamento y elecciones departamentales 2020
+* Datos de composicion de parlamento y elecciones departamentales 2020
 
 
 ## Boreluy 0.1.4
@@ -14,12 +18,12 @@ Datos de composicion de parlamento y elecciones departamentales 2020
 
 ## Boreluy 0.1.3
 
-Se ajusta por rutina nombre de partidos de eleccion de 1962 en funcion `as_esaps()`
+* Se ajusta por rutina nombre de partidos de eleccion de 1962 en funcion `as_esaps()`
 
 
 ## Boreluy 0.1.2
 
-Se ajusta visualización para elecciones presidenciales concurrentes con legislativas.
+* Se ajusta visualización para elecciones presidenciales concurrentes con legislativas.
 
 ## Boreluy 0.1.1
 

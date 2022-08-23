@@ -1,7 +1,7 @@
 Package: Boreluy
 Type: Package
 Title: Datos electorales de Uruguay 1910-2020
-Version: 0.1.5
+Version: 0.1.6
 Author: Nicolas Schmidt [aut, cre], Antonio Cardarello [aut], Diego Lujan [aut]
 Authors@R: c(person(given = "Nicolas", 
                     family = "Schmidt", 
@@ -25,7 +25,8 @@ LazyData: true
 Depends:
     R (>= 3.6.0)
 BugReports: https://github.com/Nicolas-Schmidt/Boreluy/issues
-URL: https://github.com/Nicolas-Schmidt/Boreluy
+URL: https://nicolas-schmidt.github.io/Boreluy/   
+    https://bancodedatos-fcs.shinyapps.io/appPolitica/
 Imports:
     dplyr,
     magrittr,
