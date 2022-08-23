@@ -71,6 +71,19 @@ remotes::install_github("Nicolas-Schmidt/Boreluy")
 |`elecciones_uy`|Contiene los resultrados elctorales desagregado a nivel de departamento y en los casos que existe a nivel de sublema de las elecciones nacionales y departamentales desde 1918 hasta 2019. Para la desagregacion a nivel de fracción se incorporó un a variable que tiene el cadidat a la presidencia. Este criterio cambia a partir de la aparicion de las elecciones internas obligatorias. Por esta razón, está el sublema y y candidato a la presidencia.|
 |`partidos_uy`|La undiad de esta base de datos son los partidos polítcos que alguna vez participaron en alguna elección en el período 1918 - 2019.|
 
+
+
+### Aplicación Web (Shiny App)
+
+Esta [**aplicación**](https://bancodedatos-fcs.shinyapps.io/appPolitica/) fue desarrollada por la UMAD (Unidad de Métodos y Acceso a Datos). En esta aplicación no solo van a encontrar datos electorales sino que también van a encontrar datos de opinión Pública en Uruguay del paquete de R [opuy](https://nicolas-schmidt.github.io/opuy/) (Schmidt, Vairo, Opertti (2020)).
+
+
+
+<img src="man/figures/app.png" style="margin-center:30px;margin-bottom:5px;" width="600" align="center"></a>
+
+
+
+
 ### Ejemplos
 
 
@@ -213,7 +226,7 @@ esaps::enp(na.omit(datos), enp_seats = TRUE)
 ###### Elecciones departamentales
 
 
-<img src='man/figures/mapa_departamentos.png'/>
+<img src='man/figures/mapa_departamentales.png'>
 
 
 
@@ -241,7 +254,11 @@ manual()
 
 #### Citar
 
-Para citar el paquete `Boreluy` en publicaciones use:
+Para citar el paquete `Boreluy` o el uso de los datos en publicaciones use:
+
+
+**Schmidt, Nicolás, Cardarello, Antonio, Luján, Diego (2020) Boreluy: Datos electorales de Uruguay 1910-2020, R package version 0.1.5, https://nicolas-schmidt.github.io/Boreluy/.**
+
 
 ```{r}
 citation(package = 'Boreluy')

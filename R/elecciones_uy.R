@@ -55,6 +55,8 @@
 #' \insertRef{marius1999}{Boreluy}
 #'
 #' \insertRef{marius2004}{Boreluy}
+#'
+#' \insertRef{oscaro}{Boreluy}
 NULL
 
 
