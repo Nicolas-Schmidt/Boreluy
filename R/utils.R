@@ -89,8 +89,6 @@ init_summ <- function(){
 }
 
 
-
-
 pre_out <- function(datos, eleccion, vbva.rm) {
 
     d <- datos %>%  dplyr::filter(anio_eleccion == {{eleccion}})
@@ -98,12 +96,25 @@ pre_out <- function(datos, eleccion, vbva.rm) {
         ubic <- which(d$partido %in% c('Voto en Blanco', 'Voto Anulado'))
         d <- d[-ubic, ]
     }
+    if(eleccion %in% c(1922, 1925)){
+        if(eleccion == 1922){d[which(d$organo == "Camara de Senadores"), "fecha"] <- as.Date("1922-11-26")}
+        d %>% split(., .$fecha) %>% lapply(., pooled) %>% do.call("rbind", .)
+    }else{
+            pooled(d)
+        }
+}
+
+elecR <- as.character(c(1922, 1925, 1926, 1928, 1930, 1932))
+
+pooled <- function(d){
+
     d %>%
         group_by(departamento, partido, fecha) %>%
         summarise(
             cant_votos = sum(votos, na.rm = TRUE),
             Diputados = sum(bancas_diputados, na.rm = TRUE),
-            Senadores = sum(bancas_senado, na.rm = TRUE)/length(unique(departamento))
+            ## step 1e
+            Senadores = ifelse(substring(fecha[1], 1, 4) %in% elecR, sum(bancas_senado, na.rm = TRUE), sum(bancas_senado, na.rm = TRUE)/length(unique(departamento)))
         ) %>%
         ungroup() %>%
         group_by(departamento) %>%
@@ -114,13 +125,17 @@ pre_out <- function(datos, eleccion, vbva.rm) {
         mutate(
             por_nacional =  (sum(cant_votos, na.rm = TRUE) / total) * 100,
             sum_diputados = sum(Diputados, na.rm = TRUE),
-            sum_senadores = sum(Senadores, na.rm = TRUE)/length(unique(departamento)),
+            ## step 2e
+            sum_senadores = ifelse(substring(fecha[1], 1, 4) %in% elecR, sum(Senadores, na.rm = TRUE), sum(Senadores, na.rm = TRUE)/length(unique(departamento))),
             sum_votos_par = sum(cant_votos, na.rm = TRUE),
             fecha = as.Date(fecha)
         ) %>%
         ungroup() %>%
         select(-c(total))
+
 }
+
+
 
 
 

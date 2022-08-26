@@ -14,7 +14,7 @@ status](https://github.com/Nicolas-Schmidt/Boreluy/workflows/R-CMD-check/badge.s
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![](https://img.shields.io/badge/devel%20version-0.1.6-orange.svg)](https://github.com/Nicolas-Schmidt/Boreluy)
+[![](https://img.shields.io/badge/devel%20version-0.1.7-orange.svg)](https://github.com/Nicolas-Schmidt/Boreluy)
 [![DOI](https://zenodo.org/badge/239314085.svg)](https://zenodo.org/badge/latestdoi/239314085)
 
 <!-- badges: end -->
@@ -305,7 +305,7 @@ citation(package = 'Boreluy')
 #>     title = {Boreluy: Datos electorales de Uruguay 1910-2020},
 #>     author = {Nicolas Schmidt and Antonio Cardarello and Diego Lujan},
 #>     year = {2020},
-#>     note = {R package version 0.1.6},
+#>     note = {R package version 0.1.7},
 #>     url = {https://nicolas-schmidt.github.io/Boreluy/},
 #>   }
 ```

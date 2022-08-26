@@ -1,3 +1,8 @@
+## Boreluy 0.1.7
+
+* Se adapta la salida de la funcion `agrupar_partidos_uy()` par las elecciones de la decada del 20 en donde las Legislativas del senado son por tercios. Por ejemplo, en el anio 1925 hay dos elecciones, ahora la funcion devuelve el resultado agrupado en un unico data.frame para las dos elecciones.
+
+
 ## Boreluy 0.1.6
 
 * Se agregan datos de voto en blanco y voto anulado para las elecciones departamentales desde 1985 a la actualidad.

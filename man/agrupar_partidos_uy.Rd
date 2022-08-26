@@ -7,7 +7,7 @@
 agrupar_partidos_uy(datos, umbral = 2)
 }
 \arguments{
-\item{datos}{data.frame de clase \code{boreluy_elecciones} que devuelve la funcion \code{resultados_elecciones_uy}.}
+\item{datos}{data.frame que devuelve la funcion \code{nacional_uy} y \code{departamental_uy}.}
 
 \item{umbral}{Valor relativo al porcentaje bajo el cual se van a agrupar a los partidos como 'Otros Partidos'}
 }
@@ -15,7 +15,7 @@ agrupar_partidos_uy(datos, umbral = 2)
 data.frame.
 }
 \description{
-Permite agrupar partidos politicos de la salida de la funcion \code{resultado_eleccion_uy}.
+Permite agrupar partidos politicos de la salida de la funcion \code{nacional_uy} y \code{departamental_uy}.
     Junta las categorias de Voto en Blanco y Voto Anulado y en Otros Partidos a los que no alcanzan determinado umbral.
 }
 \examples{

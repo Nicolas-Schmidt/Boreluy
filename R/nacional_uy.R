@@ -19,9 +19,11 @@
 
 nacional_uy <- function(eleccion, tipo = 'Presidencial', por_departamento = FALSE, vbva.rm = FALSE){
 
+    if(eleccion == 1920 & tipo == "Legislativa"){tipo <- "Consejo Nacional de Administracion"}
     if(!(eleccion %in% elecciones(tipo = tipo))) stop(paste0("En ese anio no hubo eleccion ", tipo, "."), call. = FALSE)
     # pre out ------------------------------------------------------------------
-    datos <- elecciones_uy %>%
+
+    datos <- Boreluy::elecciones_uy %>%
         filter(eleccion == {{tipo}}) %>%
         pre_out(datos = .,  eleccion = {{eleccion}}, vbva.rm = vbva.rm) %>%
         mutate(eleccion = tipo) %>%
@@ -50,23 +52,19 @@ nacional_uy <- function(eleccion, tipo = 'Presidencial', por_departamento = FALS
 
     }
     # salida en funcion de concurrencia ------------------------------------------
-    if(concurrente(eleccion = {{eleccion}}, tipo = {{tipo}}) != 1){
-        out <- out %>% select(-c(Diputados, Senadores))
-    }
+    if(eleccion == 1922){
+        out <- arrange(out, Fecha)
+        out$Fecha <- as.Date("1922-11-27")
+        }
+    if(eleccion == 1925){out <- arrange(out, Fecha)}
+
+    #else{
+     #   if(concurrente(eleccion = {{eleccion}}, tipo = {{tipo}}) != 1){
+     #   out <- out %>% select(-c(Diputados, Senadores))
+     # }
+     # }
     end <- out %>% sigla() #%>% zero()
     attr(end, "DPU") <- "boreluy"
     return(end)
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
