@@ -52,9 +52,11 @@ nacional_uy <- function(eleccion, tipo = 'Presidencial', por_departamento = FALS
 
     }
     # salida en funcion de concurrencia ------------------------------------------
-    if(eleccion == 1922){
+    if(eleccion == 1922 && tipo == 'Legislativa'){
         out <- arrange(out, Fecha)
         out$Fecha <- as.Date("1922-11-27")
+        out$Eleccion <- "Legislativa: CRR"
+        out$Eleccion[1:3] <- "Legislativa: CSS"
         }
     if(eleccion == 1925){out <- arrange(out, Fecha)}
 

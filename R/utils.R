@@ -97,7 +97,11 @@ pre_out <- function(datos, eleccion, vbva.rm) {
         d <- d[-ubic, ]
     }
     if(eleccion %in% c(1922, 1925)){
-        if(eleccion == 1922){d[which(d$organo == "Camara de Senadores"), "fecha"] <- as.Date("1922-11-26")}
+        if(eleccion == 1922){
+            u <- which(d$organo == "Camara de Senadores")
+            d[u, "fecha"] <- as.Date("1922-11-26")
+            #d$eleccion <- ifelse(d$organo == "Camara de Senadores", "Legislativa: CSS", "Legislativa: CRR")
+            }
         d %>% split(., .$fecha) %>% lapply(., pooled) %>% do.call("rbind", .)
     }else{
             pooled(d)
