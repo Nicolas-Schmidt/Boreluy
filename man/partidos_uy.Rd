@@ -8,7 +8,7 @@
 data.frame con 112 filas y 6 columnas
 }
 \usage{
-data(partidos_uy)
+partidos_uy
 }
 \description{
 Contiene el nombre y el anio de fundacion de todos los partidos politicos

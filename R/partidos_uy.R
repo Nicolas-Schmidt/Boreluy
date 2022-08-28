@@ -16,6 +16,5 @@
 #' @docType data
 #' @keywords datasets
 #' @name partidos_uy
-#' @usage data(partidos_uy)
 #' @format data.frame con 112 filas y 6 columnas
 'partidos_uy'

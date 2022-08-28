@@ -8,7 +8,7 @@
 data.frame con 18332 filas y 24 columnas.
 }
 \usage{
-data(elecciones_uy)
+elecciones_uy
 }
 \description{
 Contiene el resultado de un conjunto de elecciones de nivel nacional de Uruaguat entre 1918 y 2020.

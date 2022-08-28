@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 .CRAN-RELEASE
+.data-raw
 

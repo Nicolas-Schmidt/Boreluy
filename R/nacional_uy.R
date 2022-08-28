@@ -19,12 +19,13 @@
 
 nacional_uy <- function(eleccion, tipo = 'Presidencial', por_departamento = FALSE, vbva.rm = FALSE){
 
+
     if(eleccion == 1920 & tipo == "Legislativa"){tipo <- "Consejo Nacional de Administracion"}
     if(!(eleccion %in% elecciones(tipo = tipo))) stop(paste0("En ese anio no hubo eleccion ", tipo, "."), call. = FALSE)
     # pre out ------------------------------------------------------------------
 
-    datos <- Boreluy::elecciones_uy %>%
-        filter(eleccion == {{tipo}}) %>%
+    datos <- elecciones_uy %>%
+        dplyr::filter(eleccion == {{tipo}}) %>%
         pre_out(datos = .,  eleccion = {{eleccion}}, vbva.rm = vbva.rm) %>%
         mutate(eleccion = tipo) %>%
         select(fecha, eleccion, departamento, partido, cant_votos, sum_votos_par,

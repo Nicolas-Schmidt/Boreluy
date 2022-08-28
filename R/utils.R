@@ -23,9 +23,6 @@ if(getRversion() >= "2.15.1"){
     utils::suppressForeignCheck(c('.', vars))
 }
 
-
-
-
 sigla <- function(dat){
 
     p <- partidos_uy
@@ -34,7 +31,6 @@ sigla <- function(dat){
     u <- which(names(dat) == 'Partido')
     left_join(dat, p[, 1:2], by = 'Partido') %>%
         select(1:u, Sigla, (u+1):ncol(.))
-
 }
 
 ap <- function(datos, umbral = 2, departamental){
@@ -58,8 +54,6 @@ ap <- function(datos, umbral = 2, departamental){
     datos1
 }
 
-
-
 header <- function(base){
 
     total <- sum(base == "X")
@@ -75,14 +69,13 @@ header <- function(base){
     cat("---------------------------------------------------------------\n\n")
 }
 
-
-
 #init_summ <- function(){
 #    j <- elecciones_uy %>% select(anio_eleccion, eleccion) %>% distinct()
 #    table(j$anio_eleccion, j$eleccion) %>% as.data.frame()
 #}
 
 init_summ <- function(){
+
     j <- elecciones_uy %>% select(anio_eleccion, eleccion, concurrente) %>% distinct()
     j <- rbind(j[, -3], data.frame(anio_eleccion = j[which(j$concurrente == 1), "anio_eleccion"], eleccion = "Legislativa"))
     table(j$anio_eleccion, j$eleccion) %>% as.data.frame()
@@ -139,10 +132,6 @@ pooled <- function(d){
 
 }
 
-
-
-
-
 concurrente <- function(eleccion, tipo){
 
     elecciones_uy %>%
@@ -151,7 +140,6 @@ concurrente <- function(eleccion, tipo){
         unique() %>%
         deframe()
 }
-
 
 e1962_66 <- function(x){
 
@@ -192,12 +180,6 @@ departamentos <- c(
     "Tacuarembo",
     "Treinta y Tres"
 )
-
-
-
-
-
-
 
 
 
