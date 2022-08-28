@@ -3,5 +3,5 @@
 .RData
 .Ruserdata
 .CRAN-RELEASE
-.data-raw
+data-raw/
 
